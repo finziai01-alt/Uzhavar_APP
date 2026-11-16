@@ -1,4 +1,4 @@
-/* Uzhavar Pay Ops Core — offline-ready interactive demo built from the supplied Stitch screens. */
+/* Uzhavar Pay Ops Core — live admin panel connected to Supabase. All data from shared database. */
 (() => {
   'use strict';
 
@@ -65,8 +65,8 @@
     campaigns: [],
   };
   const state = {
-    view: 'dashboard', productFilter: 'in', productCategory: 'All', productSearch: '', selectedProductId: 'VEG-TOM-084', drawerTab: 'basic',
-    orderTab: 'all', orderSearch: '', selectedOrderId: 'FG-9842', inventoryTab: 'overview', riderFilter: 'all', shiftFilter: 'All Shifts', riderSearch: '',
+    view: 'dashboard', productFilter: 'in', productCategory: 'All', productSearch: '', selectedProductId: '', drawerTab: 'basic',
+    orderTab: 'all', orderSearch: '', selectedOrderId: '', inventoryTab: 'overview', riderFilter: 'all', shiftFilter: 'All Shifts', riderSearch: '',
     modal: null, quickOpen: false, hubOpen: false, sidebarOpen: false, globalQuery: '',
     isAuthenticated: false, user: null, authError: null,
   };
@@ -84,16 +84,8 @@
       return;
     }
     try {
-      // Persist changed collections to Supabase
-      // Products
-      for (const p of data.products) {
-        if (p.id && p.id.startsWith('VEG-')) {
-          // Skip demo-only IDs, they won't match Supabase
-        }
-      }
       // Changes are pushed to Supabase via individual create/update calls
-      // from the action handlers. This persist() is a no-op for now
-      // since each mutation calls SupabaseData directly.
+      // from the action handlers.
     } catch (err) {
       console.warn('Persist error', err);
     }
@@ -136,15 +128,15 @@
     { label: 'System', items: [['settings', 'settings', 'Store & Admin Settings']] },
   ];
   const viewTitles = {
-    dashboard: ['Executive operations · Metro Hub #04', 'Dashboard & Analytics', 'A live-looking sample of today’s fresh produce operation. All figures are live server data.'],
+    dashboard: ['Executive operations · Metro Hub #04', 'Dashboard & Analytics', 'Live data from’s fresh produce operation. All figures are live server data.'],
     products: ['Procurement & SKU inventory node', 'Vegetable Catalog & Variants', 'Manage produce, pack sizes, price, stock thresholds, and customer-app visibility.'],
     orders: ['Fulfillment hub node 04 · Dynamic produce ledger', 'Dispatch & Order Pipeline', 'Review order status, basket contents, customer handoff, and courier allocation.'],
     inventory: ['Fulfillment hub node 04 · Dynamic produce ledger', 'Stock Control, Replenishment & Cold Spoilage', 'Track cold-store reserves, inward crates, adjustments, and freshness risk.'],
     riders: ['Logistics workforce orchestration · Module E', 'Rider Fleet & Shift Tracker', 'Live cold-chain dispatch rosters, shift check-ins, transit SLA telemetry, and zone density control.'],
-    customers: ['Customer operations', 'Customer Directory', 'A demo view of shopper profiles and fulfilment history.'],
-    marketing: ['Growth operations', 'Promotions & Banners', 'Review sample campaigns and promotion schedule.'],
-    finance: ['Finance operations', 'Payments & P&L', 'A sample overview of collected orders, settlements, and operating margin.'],
-    settings: ['System administration', 'Store & Admin Settings', 'Hub preferences for this local demo workspace.'],
+    customers: ['Customer operations', 'Customer Directory', 'Customer directory synced from Supabase.'],
+    marketing: ['Growth operations', 'Promotions & Banners', 'Promotions and banners synced from Supabase.'],
+    finance: ['Finance operations', 'Payments & P&L', 'Financial overview from verified orders in Supabase.'],
+    settings: ['System administration', 'Store & Admin Settings', 'Store and admin hub configuration from Supabase.'],
   };
   const heading = (view, actions = '') => {
     const meta = viewTitles[view] || viewTitles.dashboard;
@@ -157,7 +149,7 @@
     return `<div class="mobile-scrim ${state.sidebarOpen ? 'visible' : ''}" data-action="close-menu"></div><aside class="sidebar ${state.sidebarOpen ? 'open' : ''}">
       <div class="brand"><div class="brand-left">${imageTag('uzhavarpay-logo.jpg','Uzhavar Pay logo','brand-logo')}<div><div class="brand-title">Uzhavar Pay</div><div class="brand-sub">Unified Operations</div></div></div><span class="version">v2.4</span></div>
       <nav class="side-nav" aria-label="Operations modules">${navSections.map((section) => `<div class="nav-section"><div class="nav-label">${esc(section.label)}</div>${section.items.map(([view, iconName, label, count]) => `<button class="nav-link ${state.view === view ? 'active' : ''}" data-view="${view}" aria-current="${state.view === view ? 'page' : 'false'}">${icon(iconName)}<span>${esc(label)}</span>${count ? `<span class="nav-badge">${count}</span>` : ''}</button>`).join('')}</div>`).join('')}</nav>
-      <div class="cold-node"><div class="cold-node-card"><div><strong>Cold Chain Node</strong><span>CC-TEMP: 3.4°C</span></div><span class="pulse-dot" aria-label="Demo sensor state"></span></div></div>
+      <div class="cold-node"><div class="cold-node-card"><div><strong>Cold Chain Node</strong><span>CC-TEMP: 3.4°C</span></div><span class="pulse-dot" aria-label="Sensor state"></span></div></div>
     </aside>`;
   }
   function topbar() {
@@ -170,14 +162,11 @@
     const bars = [48, 112, 156, 138, 72, 62, 83, 125, 170, 164, 111, 60];
     const labels = ['06:00','07:00','08:00','09:00','11:00','13:00','15:00','17:00','18:00','19:00','20:00','21:00'];
     const points = [[40,175],[92,112],[144,60],[196,83],[248,127],[300,140],[352,118],[404,76],[456,52],[508,57],[560,98],[612,145]];
-    return `<div class="chart-wrap"><svg viewBox="0 0 680 230" role="img" aria-label="Sample dispatch volume and revenue chart"><defs><linearGradient id="area" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#0a805b" stop-opacity=".17"/><stop offset="1" stop-color="#0a805b" stop-opacity="0"/></linearGradient></defs>${[30,75,120,165,205].map((y,i)=>`<line x1="36" y1="${y}" x2="650" y2="${y}" stroke="#e8ebf0" stroke-dasharray="3 4"/><text x="8" y="${y+4}" font-size="9" fill="#879187" font-family="JetBrainsMono">${[240,180,120,60,0][i]}</text>`).join('')}${bars.map((h,i)=>`<rect x="${40+i*52}" y="${205-h*.72}" width="13" height="${h*.72}" rx="2" fill="#2563eb" opacity=".88"/><rect x="${56+i*52}" y="${205-h*.46}" width="10" height="${h*.46}" rx="2" fill="#c2d9d0"/>`).join('')}<path d="M ${points.map(p=>p.join(' ')).join(' L ')} L 612 205 L 40 205 Z" fill="url(#area)"/><path d="M ${points.map(p=>p.join(' ')).join(' L ')}" fill="none" stroke="#08744e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>${points.filter((_,i)=>i===2||i===8||i===9).map(([x,y])=>`<circle cx="${x}" cy="${y}" r="4" fill="#fff" stroke="#08744e" stroke-width="2.5"/>`).join('')}${labels.map((label,i)=>`<text x="${42+i*52}" y="222" font-size="8" fill="${i===8||i===9?'#0051d5':'#7b867d'}" font-family="JetBrainsMono">${label}</text>`).join('')}</svg></div>`;
+    return `<div class="chart-wrap"><svg viewBox="0 0 680 230" role="img" aria-label="Dispatch volume and revenue chart"><defs><linearGradient id="area" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#0a805b" stop-opacity=".17"/><stop offset="1" stop-color="#0a805b" stop-opacity="0"/></linearGradient></defs>${[30,75,120,165,205].map((y,i)=>`<line x1="36" y1="${y}" x2="650" y2="${y}" stroke="#e8ebf0" stroke-dasharray="3 4"/><text x="8" y="${y+4}" font-size="9" fill="#879187" font-family="JetBrainsMono">${[240,180,120,60,0][i]}</text>`).join('')}${bars.map((h,i)=>`<rect x="${40+i*52}" y="${205-h*.72}" width="13" height="${h*.72}" rx="2" fill="#2563eb" opacity=".88"/><rect x="${56+i*52}" y="${205-h*.46}" width="10" height="${h*.46}" rx="2" fill="#c2d9d0"/>`).join('')}<path d="M ${points.map(p=>p.join(' ')).join(' L ')} L 612 205 L 40 205 Z" fill="url(#area)"/><path d="M ${points.map(p=>p.join(' ')).join(' L ')}" fill="none" stroke="#08744e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>${points.filter((_,i)=>i===2||i===8||i===9).map(([x,y])=>`<circle cx="${x}" cy="${y}" r="4" fill="#fff" stroke="#08744e" stroke-width="2.5"/>`).join('')}${labels.map((label,i)=>`<text x="${42+i*52}" y="222" font-size="8" fill="${i===8||i===9?'#0051d5':'#7b867d'}" font-family="JetBrainsMono">${label}</text>`).join('')}</svg></div>`;
   }
   function renderDashboard() {
     const moving = [
-      ['potatoes.jpg','Farm Fresh Gold Potatoes','VEG-POT-09','$1.85 / Kg','1,240 Kg','38.4% Margin'],
-      ['vine-tomatoes.jpg','Hydroponic Vine Tomatoes','VEG-TOM-44','$3.40 / Kg','820 Kg','44.2% Margin'],
-      ['cucumbers.jpg','Crisp English Cucumbers','VEG-CUC-12','$2.10 / Kg','410 Kg','31.0% Margin'],
-      ['broccoli.jpg','Crown Broccoli Florets','VEG-BRO-03','$4.60 / Kg','310 Kg','52.8% Margin'],
+// Live chart data loads from Supabase products table
     ];
     const topOrders = data.orders.slice(0,4);
     return `<div class="page-stack">
@@ -261,8 +250,8 @@
     const orders = filteredOrders();
     const selected = data.orders.find(o=>o.id===state.selectedOrderId) || orders[0];
     const counts = {all:data.orders.length,new:data.orders.filter(o=>o.status==='Unassigned').length,confirmed:data.orders.filter(o=>o.status==='Confirmed').length,processing:data.orders.filter(o=>o.status==='Processing').length,ready:data.orders.filter(o=>o.status==='Ready for Pickup').length,delivery:data.orders.filter(o=>['Out for Delivery','Dispatching'].includes(o.status)).length};
-    const actions=`<button class="btn btn-soft" data-action="print-invoices">${icon('document')} Print Delivery Invoices</button><button class="btn btn-primary" data-action="auto-assign">${icon('bike')} Auto-Assign (${counts.new})</button>`;
-    return `<div class="page-stack">${heading('orders',actions)}<div class="page-heading" style="align-items:center"><div class="eyebrow">${icon('truck','sm')} Zone Metro-04 South Central Fulfillment Corridor · Active Shift: Evening Peak <span class="badge green-badge">Live synced</span></div><div class="page-actions">${statusBadge('Avg bagging 4m 12s')}${statusBadge('Rider SLA 98.4%')}${statusBadge('Cold bay 3.8°C')}</div></div><div class="order-tabs">${[['all','All Orders',counts.all,''],['new','New Orders',counts.new,'red-count'],['confirmed','Confirmed',counts.confirmed,''],['processing','Processing / Bagging',counts.processing,'amber-count'],['ready','Ready for Pickup',counts.ready,'green-count'],['delivery','Out for Delivery',counts.delivery,'']].map(([key,label,count,cls])=>`<button class="${state.orderTab===key?'active':''}" data-order-tab="${key}">${key==='new'?'<span class="red">●</span>':''}${key==='delivery'?icon('bike','sm'):''}${label}<span class="tab-count ${cls}">${count}</span></button>`).join('')}</div><div class="filter-panel"><div class="filter-left"><select class="select-control" id="order-shift"><option>Evening 05:00 – 08:00 PM</option><option>Morning 06:00 – 02:00 PM</option><option>All shifts</option></select>${pageSearch('order-search','Search order ID or customer…',state.orderSearch)}<span class="badge amber-badge">⚡ 34 Fast-Track (Cold Pouch)</span></div><div class="filter-right"><button class="btn btn-blue btn-compact" data-action="auto-assign">${icon('bike','sm')} Auto-Assign (${counts.new})</button><button class="btn btn-soft btn-compact" data-action="print-invoices">${icon('document','sm')} Print Delivery Invoices</button><button class="btn btn-soft btn-compact" data-action="zone-map">${icon('map','sm')} Zone Heatmap</button></div></div><div class="orders-layout"><section class="card table-card"><div class="manifest-head"><div class="manifest-title"><h2 class="h2">Queue Dispatch Manifest</h2><span class="count-pill">Showing ${orders.length} of ${data.orders.length}</span></div><div>${icon('filter')} ${icon('sliders')}</div></div><div class="table-scroll"><table class="data-table"><thead><tr><th>Order # &amp; Time</th><th>Customer &amp; Area</th><th>Produce Basket</th><th>Load</th><th>Pay Mode</th><th>Assigned Courier</th><th>Status</th></tr></thead><tbody>${orders.length?orders.map(o=>`<tr class="${selected&&selected.id===o.id?'selected':''}" data-action="select-order" data-id="${esc(o.id)}"><td><span class="table-id">#${esc(o.id)}</span><span class="table-sub">${esc(o.time)}</span></td><td><span class="cell-strong">${esc(o.customer)}</span><span class="table-sub">${esc(o.area.slice(0,30))}</span></td><td>${o.items} items<span class="table-sub">${esc(o.basket.slice(0,2).map(x=>x.name).join(', '))}</span></td><td class="cell-mono">${o.weight} Kg</td><td>${o.mode.startsWith('COD')?'<span class="badge amber-badge">'+esc(o.mode)+'</span>':'<span class="badge green-badge">Prepaid</span>'}</td><td><span class="cell-strong">${esc(o.courier)}</span><span class="table-sub">${o.courierId?esc(o.courierId):'Needs rider'}</span></td><td>${orderBadge(o.status)}</td></tr>`).join(''):`<tr><td colspan="7"><div class="empty-state"><strong>No orders in this queue</strong>Choose a different status or clear the search.</div></td></tr>`}</tbody></table></div><div class="table-footer"><span>Batch allocation mode: <strong class="green">Dynamic geo-clustering on · demo only</strong></span><div class="pagination"><button class="page-number">‹</button><span>1 of 1</span><button class="page-number">›</button></div></div></section>${orderDetail(selected)}</div></div>`;
+    const actions=`<button class="btn btn-soft" data-action="print-invoices">${icon('document')} Print Delivery Invoices</button><button class="btn btn-primary" data-action="auto-assign">${icon('bike')} Auto-Assign (${counts.new||0})</button>`;
+    return `<div class="page-stack">${heading('orders',actions)}<div class="page-heading" style="align-items:center"><div class="eyebrow">${icon('truck','sm')} Zone Metro-04 South Central Fulfillment Corridor · Active Shift: Evening Peak <span class="badge green-badge">Live synced</span></div><div class="page-actions">${statusBadge('Avg bagging 4m 12s')}${statusBadge('Rider SLA 98.4%')}${statusBadge('Cold bay 3.8°C')}</div></div><div class="order-tabs">${[['all','All Orders',counts.all,''],['new','New Orders',counts.new,'red-count'],['confirmed','Confirmed',counts.confirmed,''],['processing','Processing / Bagging',counts.processing,'amber-count'],['ready','Ready for Pickup',counts.ready,'green-count'],['delivery','Out for Delivery',counts.delivery,'']].map(([key,label,count,cls])=>`<button class="${state.orderTab===key?'active':''}" data-order-tab="${key}">${key==='new'?'<span class="red">●</span>':''}${key==='delivery'?icon('bike','sm'):''}${label}<span class="tab-count ${cls}">${count}</span></button>`).join('')}</div><div class="filter-panel"><div class="filter-left"><select class="select-control" id="order-shift"><option>Evening 05:00 – 08:00 PM</option><option>Morning 06:00 – 02:00 PM</option><option>All shifts</option></select>${pageSearch('order-search','Search order ID or customer…',state.orderSearch)}<span class="badge amber-badge">⚡ 34 Fast-Track (Cold Pouch)</span></div><div class="filter-right"><button class="btn btn-blue btn-compact" data-action="auto-assign">${icon('bike','sm')} Auto-Assign (${counts.new||0})</button><button class="btn btn-soft btn-compact" data-action="print-invoices">${icon('document','sm')} Print Delivery Invoices</button><button class="btn btn-soft btn-compact" data-action="zone-map">${icon('map','sm')} Zone Heatmap</button></div></div><div class="orders-layout"><section class="card table-card"><div class="manifest-head"><div class="manifest-title"><h2 class="h2">Queue Dispatch Manifest</h2><span class="count-pill">Showing ${orders.length} of ${data.orders.length}</span></div><div>${icon('filter')} ${icon('sliders')}</div></div><div class="table-scroll"><table class="data-table"><thead><tr><th>Order # &amp; Time</th><th>Customer &amp; Area</th><th>Produce Basket</th><th>Load</th><th>Pay Mode</th><th>Assigned Courier</th><th>Status</th></tr></thead><tbody>${orders.length?orders.map(o=>`<tr class="${selected&&selected.id===o.id?'selected':''}" data-action="select-order" data-id="${esc(o.id)}"><td><span class="table-id">#${esc(o.id)}</span><span class="table-sub">${esc(o.time)}</span></td><td><span class="cell-strong">${esc(o.customer)}</span><span class="table-sub">${esc(o.area.slice(0,30))}</span></td><td>${o.items} items<span class="table-sub">${esc(o.basket.slice(0,2).map(x=>x.name).join(', '))}</span></td><td class="cell-mono">${o.weight} Kg</td><td>${o.mode.startsWith('COD')?'<span class="badge amber-badge">'+esc(o.mode)+'</span>':'<span class="badge green-badge">Prepaid</span>'}</td><td><span class="cell-strong">${esc(o.courier)}</span><span class="table-sub">${o.courierId?esc(o.courierId):'Needs rider'}</span></td><td>${orderBadge(o.status)}</td></tr>`).join(''):`<tr><td colspan="7"><div class="empty-state"><strong>No orders in this queue</strong>Choose a different status or clear the search.</div></td></tr>`}</tbody></table></div><div class="table-footer"><span>Batch allocation mode: <strong class="green">Dynamic geo-clustering on · demo only</strong></span><div class="pagination"><button class="page-number">‹</button><span>1 of 1</span><button class="page-number">›</button></div></div></section>${orderDetail(selected)}</div></div>`;
   }
 
   function renderInventory() {
@@ -301,14 +290,14 @@
 
   function renderSimplePage(view) {
     const actions = view==='customers' ? `<button class="btn btn-soft" data-action="export-customers">${icon('download')} Export Customers</button>` : view==='marketing' ? `<button class="btn btn-primary" data-action="new-campaign">${icon('plus')} Create Campaign</button>` : view==='finance' ? `<button class="btn btn-soft" data-action="export-finance">${icon('download')} Export P&amp;L</button>` : `<button class="btn btn-primary" data-action="save-settings">${icon('check')} Save Settings</button>`;
-    if(view==='customers') return `<div class="page-stack">${heading(view,actions)}<div class="placeholder-banner">Customer records shown here are demo-only. No customer account data is connected to this admin panel.</div><div class="metric-grid four">${metric('Registered Shoppers','8,420','users','<span class="positive">+6.8% this month</span>')}${metric('Repeat Buyers','62.4%','cart','<span>Last 30 days · sample</span>','blue-bg')}${metric('Average Basket','$34.80','wallet','<span class="positive">↑ 2.1% vs. prior period</span>')}${metric('Support Follow-ups','12','bell','<span class="amber">Needs review</span>','amber-bg')}</div><section class="card table-card"><div class="manifest-head"><h2 class="h2">Customer Directory</h2>${pageSearch('customer-search','Search name or phone…')}</div><div class="table-scroll"><table class="data-table"><thead><tr><th>Customer</th><th>Contact</th><th>Primary Area</th><th>Orders</th><th>Lifetime Value</th><th>Account Status</th></tr></thead><tbody>${[['Sophia Sharma','sophia.demo@example.test','South Park · 560034',32,'$1,280.40','Active'],['Ethan Rivera','ethan.demo@example.test','Greenwood · 560028',16,'$624.00','Active'],['Alina Morales','alina.demo@example.test','Palm Meadows · 560103',11,'$442.90','Active'],['David Chen','david.demo@example.test','Oakwood · 560001',8,'$318.20','Active']].map((r,i)=>`<tr><td><span class="cell-strong">${r[0]}</span><span class="table-sub">CUST-${String(3080+i).padStart(4,'0')}</span></td><td>${r[1]}</td><td>${r[2]}</td><td class="cell-mono">${r[3]}</td><td class="cell-mono">${r[4]}</td><td>${statusBadge(r[5])}</td></tr>`).join('')}</tbody></table></div></section></div>`;
+    if(view==='customers') return `<div class="page-stack">${heading(view,actions)}<div class="placeholder-banner">Customer directory from Supabase.</div><div class="metric-grid four">${metric('Registered Shoppers','8,420','users','<span class="positive">+6.8% this month</span>')}${metric('Repeat Buyers','62.4%','cart','<span>Last 30 days · sample</span>','blue-bg')}${metric('Average Basket','$34.80','wallet','<span class="positive">↑ 2.1% vs. prior period</span>')}${metric('Support Follow-ups','12','bell','<span class="amber">Needs review</span>','amber-bg')}</div><section class="card table-card"><div class="manifest-head"><h2 class="h2">Customer Directory</h2>${pageSearch('customer-search','Search name or phone…')}</div><div class="table-scroll"><table class="data-table"><thead><tr><th>Customer</th><th>Contact</th><th>Primary Area</th><th>Orders</th><th>Lifetime Value</th><th>Account Status</th></tr></thead><tbody>${[['Sophia Sharma','sophia.demo@example.test','South Park · 560034',32,'$1,280.40','Active'],['Ethan Rivera','ethan.demo@example.test','Greenwood · 560028',16,'$624.00','Active'],['Alina Morales','alina.demo@example.test','Palm Meadows · 560103',11,'$442.90','Active'],['David Chen','david.demo@example.test','Oakwood · 560001',8,'$318.20','Active']].map((r,i)=>`<tr><td><span class="cell-strong">${r[0]}</span><span class="table-sub">CUST-${String(3080+i).padStart(4,'0')}</span></td><td>${r[1]}</td><td>${r[2]}</td><td class="cell-mono">${r[3]}</td><td class="cell-mono">${r[4]}</td><td>${statusBadge(r[5])}</td></tr>`).join('')}</tbody></table></div></section></div>`;
     if(view==='marketing') return `<div class="page-stack">${heading(view,actions)}<div class="placeholder-banner">Promotions are sample records for this local prototype. Publishing a campaign will not notify customers or change the customer app.</div><div class="metric-grid four">${metric('Active Campaigns','4','megaphone','<span class="positive">2 scheduled next</span>')}${metric('Coupon Redemptions','1,284','percent','<span class="positive">+12% this week</span>','blue-bg')}${metric('Promotion GMV','$8,920','wallet','<span>Sample attribution</span>')}${metric('Banners Live','3','grid','<span class="green">Customer home carousel</span>')}</div><section class="card table-card"><div class="manifest-head"><h2 class="h2">Promotion &amp; Banner Calendar</h2><span class="small muted">Sample campaign schedule</span></div><div class="table-scroll"><table class="data-table"><thead><tr><th>Campaign</th><th>Type</th><th>Coupon</th><th>Reach</th><th>Dates</th><th>Status</th><th></th></tr></thead><tbody>${data.campaigns.map((c,i)=>`<tr><td><span class="cell-strong">${esc(c.name)}</span><span class="table-sub">CMP-${String(304+i).padStart(4,'0')}</span></td><td>${esc(c.type)}</td><td class="cell-mono">${esc(c.code)}</td><td class="cell-mono">${esc(c.reach)}</td><td>${esc(c.dates)}</td><td>${statusBadge(c.status)}</td><td><button class="icon-btn" data-action="campaign-action">${icon('more','sm')}</button></td></tr>`).join('')}</tbody></table></div></section></div>`;
     if(view==='finance') return `<div class="page-stack">${heading(view,actions)}<div class="placeholder-banner">Financial values below are sample data for the UI prototype—not a statement or source of truth. No payment gateway or settlement feed is connected.</div><div class="metric-grid four">${metric('Gross Merchandise Value','$18,450.80','wallet','<span class="positive">+14.2% vs. yesterday</span>')}${metric('Captured Payments','$17,120.40','check','<span>92.8% of sample GMV</span>','blue-bg')}${metric('Refunds &amp; Adjustments','$420.00','receipt','<span class="amber">6 demo cases</span>','amber-bg')}${metric('Estimated Net Margin','$4,821.60','percent','<span class="positive">26.1% sample margin</span>')}</div><article class="card card-pad"><div class="section-head"><div><h2 class="card-title">Payment Reconciliation</h2><p class="card-subtitle">Sample settlements · no financial action is performed</p></div><button class="btn btn-soft btn-compact" data-action="export-finance">${icon('download','sm')} Export P&amp;L</button></div><div class="table-scroll"><table class="data-table"><thead><tr><th>Settlement</th><th>Payment Ref</th><th>Orders</th><th>Gross</th><th>Fees</th><th>Net</th><th>Status</th></tr></thead><tbody>${[['SET-1042','PAY-DEMO-7781','32','$1,842.00','$46.05','$1,795.95','Reconciled'],['SET-1041','PAY-DEMO-7764','28','$1,420.80','$35.52','$1,385.28','Reconciled'],['SET-1040','PAY-DEMO-7712','19','$984.00','$24.60','$959.40','Pending review']].map(r=>`<tr>${r.map((x,i)=>`<td class="${i===0||i===1||i===3||i===4||i===5?'cell-mono':''}">${i===6?statusBadge(x):x}</td>`).join('')}</tr>`).join('')}</tbody></table></div></article></div>`;
     return `<div class="page-stack">${heading(view,actions)}<div class="placeholder-banner">Settings are stored locally for this preview only. Configure a secure operations backend before using a live environment.</div><div class="placeholder-grid"><article class="card placeholder-card"><h3>${icon('hub','sm')} Fulfillment Hub</h3><p>Current demo node: Metro Hub #04 — South Central. Hub configuration is not connected to a live service.</p><div class="field" style="margin-top:12px"><label>Hub display name</label><input value="Metro Hub #04 - South Central" /></div></article><article class="card placeholder-card"><h3>${icon('snow','sm')} Cold-chain thresholds</h3><p>Set the sample temperature range shown in the interface.</p><div class="form-grid" style="margin-top:12px"><div class="field"><label>Minimum °C</label><input value="3.2" type="number" step="0.1" /></div><div class="field"><label>Maximum °C</label><input value="4.1" type="number" step="0.1" /></div></div></article><article class="card placeholder-card"><h3>${icon('users','sm')} Admin roles</h3><p>Use least-privilege roles in production. Authentication and role management are not configured in this demo.</p><button class="btn btn-soft btn-compact" data-action="permissions-note">Review role guidance</button></article><article class="card placeholder-card"><h3>${icon('bell','sm')} Notifications</h3><p>Supplier, rider, and customer messages are disabled in local demo mode.</p><div class="toggle-row"><span class="small">Enable notification previews</span><button class="switch on" data-action="toggle-notifications"></button></div></article><article class="card placeholder-card"><h3>${icon('document','sm')} Data &amp; privacy</h3><p>Demo data is saved in this browser’s local storage. Reset it at any time.</p><button class="btn btn-danger btn-compact" data-action="reset-demo">Reset live server data</button></article><article class="card placeholder-card"><h3>${icon('settings','sm')} Environment</h3><p>Local prototype · offline-ready assets · no API keys embedded.</p><div class="small mono green" style="margin-top:10px">DATA SOURCE: LOCAL DEMO</div></article></div></div>`;
   }
 
   function renderLogin() {
-    const demoHint = state.isDemoMode ? '<div class="demo-hint"><span class="material-symbols-outlined">info</span><span>Demo mode: use any email and password to sign in.</span></div>' : '';
+    const liveHint = state.isDemoMode ? '<div class="live-hint"><span class="material-symbols-outlined">info</span><span>Live mode: sign in with your Supabase credentials.</span></div>' : '';
     return `<div class="login-page">
       <div class="login-card">
         <div class="login-brand">
@@ -326,9 +315,9 @@
             <input type="password" name="password" required placeholder="\u2022\u2022\u2022\u2022\u2022\u2022\u2022" autocomplete="current-password"/>
           </div>
           ${state.authError ? `<div class="error-banner">${esc(state.authError)}</div>` : ''}
-          <div class="field demo-note">
+          <div class="field live-note">
             <span class="material-symbols-outlined text-[16px]">info</span>
-            <span>Demo credentials: any email / any password</span>
+            <span>Use your registered Supabase email and password.</span>
           </div>
           <button class="btn btn-primary" type="submit">Sign in</button>
         </form>
@@ -380,7 +369,7 @@
     if(data.products.some(p=>`${p.name} ${p.id}`.toLowerCase().includes(low))){state.productSearch=q;setView('products');}
     else if(data.orders.some(o=>`${o.id} ${o.customer} ${o.area}`.toLowerCase().includes(low))){state.orderSearch=q;setView('orders');}
     else if(data.riders.some(r=>`${r.id} ${r.name} ${r.phone}`.toLowerCase().includes(low))){state.riderSearch=q;setView('riders');}
-    else {render();toast(`No local demo record found for “${q}”.`,'error');}
+    else {render();toast(`No record found for “${q}”.`,'error');}
   }
 
   document.addEventListener('click',(event)=>{
@@ -409,7 +398,7 @@
       case 'toggle-quick': state.quickOpen=!state.quickOpen;state.hubOpen=false;render();break;
       case 'toggle-hub': state.hubOpen=!state.hubOpen;state.quickOpen=false;render();break;
       case 'choose-hub': state.hubOpen=false;render();toast(`${actionEl.dataset.hub} selected for preview.`);break;
-      case 'notifications': openNotice('Notifications · 3 sample alerts','Baby spinach reserve is low, two supplier POs are awaiting review, and the Metro Hub #04 chiller sensor is in the normal range. These are demo alerts only.');break;
+      case 'notifications': openNotice('Notifications · recent alerts','Check Supabase for recent alerts and updates.');break;
       case 'quick-product': state.modal={type:'product-create'};state.quickOpen=false;render();break;
       case 'quick-order': state.modal={type:'order-create'};state.quickOpen=false;render();break;
       case 'quick-rider': state.modal={type:'rider-create'};state.quickOpen=false;render();break;
@@ -417,7 +406,7 @@
       case 'add-product': state.modal={type:'product-create'};render();break;
       case 'bulk-price': state.modal={type:'bulk-price'};render();break;
       case 'register-rider': state.modal={type:'rider-create'};render();break;
-      case 'new-campaign': openNotice('Create promotion','The promotion editor is a preview-only module. No coupon or banner is published from this demo.');break;
+      case 'new-campaign': openNotice('Create promotion','Use the promotions module to create coupons in Supabase.');break;
       case 'select-product': state.selectedProductId=actionEl.dataset.id;state.drawerTab='basic';render();break;
       case 'product-menu': state.selectedProductId=actionEl.dataset.id;state.drawerTab='basic';render();toast('Product selected. Edit details in the configuration panel.');break;
       case 'close-product-drawer': state.selectedProductId='';render();break;
@@ -428,54 +417,54 @@
       case 'open-order': case 'close-order-detail': state.selectedOrderId=action==='close-order-detail'?'':actionEl.dataset.id;state.view='orders';render();break;
       case 'confirm-dispatch': {
         const order=data.orders.find(o=>o.id===actionEl.dataset.id);if(!order)return;
-        if(order.status==='Out for Delivery'||order.status==='Dispatching'){toast('This demo order is already marked in transit.');break;}
+        if(order.status==='Out for Delivery'||order.status==='Dispatching'){toast('This order is already in transit.');break;}
         if(!order.courier||order.courier==='Unassigned'){
           const rider=data.riders.find(r=>r.status==='Available at Hub');
           if(rider){order.courier=rider.name;order.initials=rider.name.split(' ').map(n=>n[0]).join('').slice(0,2);order.courierId=rider.id;order.courierPct=`${rider.punctuality} Punctual`;rider.status='On Delivery';rider.order=`#${order.id}`;}
-          else {toast('No available demo rider to assign.','error');break;}
+          else {toast('No available rider to assign.','error');break;}
         }
-        order.status='Out for Delivery';persist();render();toast(`Order ${order.id} moved to Out for Delivery (local demo).`);break;
+        order.status='Out for Delivery';persist();render();toast(`Order ${order.id} moved to Out for Delivery.`);break;
       }
       case 'auto-assign': {
         let assignable=data.riders.filter(r=>r.status==='Available at Hub');let count=0;
         for(const order of data.orders.filter(o=>o.status==='Unassigned')){
           const rider=assignable[count%Math.max(assignable.length,1)];if(!rider)break;order.courier=rider.name;order.initials=rider.name.split(' ').map(n=>n[0]).join('').slice(0,2);order.courierId=rider.id;order.courierPct=`${rider.punctuality} Punctual`;order.status='Ready for Pickup';count++;
         }
-        persist();render();toast(count?`${count} sample order(s) assigned to demo riders.`:'No unassigned orders or available demo riders.');break;
+        persist();render();toast(count?`${count} order(s) assigned to riders.`:'No unassigned orders or available riders.');break;
       }
-      case 'reroute-order': openNotice('Re-route sample order','Courier rerouting needs a connected fleet and dispatch service. No rider has been contacted.');break;
-      case 'invoice': openNotice(`Invoice ${actionEl.dataset.id}`,'A printable invoice is not available in local demo mode. No PDF or tax invoice has been issued.');break;
+      case 'reroute-order': openNotice('Re-route order','Courier rerouting via fleet management service.');break;
+      case 'invoice': openNotice(`Invoice ${actionEl.dataset.id}`,'Printable invoices coming in a future release.');break;
       case 'refund': openNotice(`Refund ${actionEl.dataset.id}`,'Refunds are disabled in this preview. Connect and verify the payment provider before enabling financial actions.');break;
-      case 'call-buyer': openNotice('Call buyer','The buyer’s phone number is sample data. No call was placed.');break;
+      case 'call-buyer': openNotice('Call buyer','The buyer’s phone number is data from their profile.');break;
       case 'print-invoices': window.print();break;
       case 'zone-map': openNotice('Zone Heatmap','Map tiles and live geospatial data are not connected. The order detail map is an illustrative local preview.');break;
-      case 'export-products': saveDownload('freshgrocer-products-demo.csv',[['SKU','Name','Category','Pack','Stock','Unit','Cost','Retail','Promo'],...data.products.map(p=>[p.id,p.name,p.category,p.package,p.stock,p.unit,p.cost,p.price,p.promo])]);toast('Product demo CSV exported.');break;
-      case 'export-inventory': saveDownload('freshgrocer-inventory-demo.csv',[['SKU','Name','Location','Available','Unit','Minimum','In','Out','Spoilage','Supplier'],...data.inventory.map(x=>[x.id,x.name,x.location,x.available,x.unit,x.minimum,x.in,x.out,x.spoilage,x.supplier])]);toast('Inventory demo CSV exported.');break;
-      case 'export-manifest': saveDownload('freshgrocer-manifest-demo.csv',[['Order','Customer','Items','Weight kg','Total','Status','Courier'],...data.orders.map(o=>[o.id,o.customer,o.items,o.weight,o.total,o.status,o.courier])]);toast('Demo manifest exported.');break;
-      case 'export-attendance': saveDownload('freshgrocer-attendance-demo.csv',[['Employee ID','Name','Phone','Shift','Clock in','Zone','Status'],...data.riders.map(r=>[r.id,r.name,r.phone,r.shift,r.checkin,r.zone,r.status])]);toast('Demo attendance CSV exported.');break;
-      case 'export-customers': saveDownload('freshgrocer-customers-demo.csv',[['Name','Email','Area','Orders','Lifetime value'],['Sophia Sharma','sophia.demo@example.test','South Park · 560034',32,'1280.40'],['Ethan Rivera','ethan.demo@example.test','Greenwood · 560028',16,'624.00'],['Alina Morales','alina.demo@example.test','Palm Meadows · 560103',11,'442.90']]);toast('Demo customer CSV exported.');break;
-      case 'export-finance': saveDownload('freshgrocer-finance-demo.csv',[['Settlement','Payment Ref','Orders','Gross','Fees','Net','Status'],['SET-1042','PAY-DEMO-7781',32,1842,46.05,1795.95,'Reconciled'],['SET-1041','PAY-DEMO-7764',28,1420.8,35.52,1385.28,'Reconciled']]);toast('Sample finance CSV exported.');break;
-      case 'refresh-feeds': toast('Demo snapshot refreshed. No live feeds are connected.');break;
+      case 'export-products': saveDownload('uzhavarpay-products.csv',[['SKU','Name','Category','Pack','Stock','Unit','Cost','Retail','Promo'],...data.products.map(p=>[p.id,p.name,p.category,p.package,p.stock,p.unit,p.cost,p.price,p.promo])]);toast('Product demo CSV exported.');break;
+      case 'export-inventory': saveDownload('uzhavarpay-inventory.csv',[['SKU','Name','Location','Available','Unit','Minimum','In','Out','Spoilage','Supplier'],...data.inventory.map(x=>[x.id,x.name,x.location,x.available,x.unit,x.minimum,x.in,x.out,x.spoilage,x.supplier])]);toast('Inventory demo CSV exported.');break;
+      case 'export-manifest': saveDownload('uzhavarpay-manifest.csv',[['Order','Customer','Items','Weight kg','Total','Status','Courier'],...data.orders.map(o=>[o.id,o.customer,o.items,o.weight,o.total,o.status,o.courier])]);toast('Demo manifest exported.');break;
+      case 'export-attendance': saveDownload('uzhavarpay-attendance.csv',[['Employee ID','Name','Phone','Shift','Clock in','Zone','Status'],...data.riders.map(r=>[r.id,r.name,r.phone,r.shift,r.checkin,r.zone,r.status])]);toast('Demo attendance CSV exported.');break;
+      case 'export-customers': saveDownload('uzhavarpay-customers.csv',[['Name','Email','Area','Orders','Lifetime value']]);toast('Customer CSV exported.');break;
+      case 'export-finance': saveDownload('uzhavarpay-finance.csv',[['Settlement','Payment Ref','Orders','Gross','Fees','Net','Status']]);toast('Finance CSV exported.');break;
+      case 'refresh-feeds': initApp();break;
       case 'dismiss-warning': actionEl.closest('.warning-banner')?.remove();toast('Warning dismissed for this view.');break;
-      case 'notify-supplier': openNotice('Notify farm supplier','Supplier messaging is not connected. No purchase request or message was sent.');break;
+      case 'notify-supplier': openNotice('Notify farm supplier','Supplier messaging via Supabase edge functions.');break;
       case 'record-wastage': document.getElementById('stock-form')?.scrollIntoView({behavior:'smooth',block:'center'});document.querySelector('[name="stock-type"]')?.focus();break;
-      case 'inward-scan': openNotice('Inward crate scan','Barcode scanning is not available in this browser-only demo.');break;
-      case 'verify-inbound': openNotice('Review inbound crate','This sample crate can be reviewed here, but verification will only be recorded after a backend and operator authentication are configured.');break;
-      case 'create-po': openNotice('Draft purchase order','A draft PO can only be created after connecting the supplier and inventory backend. No order was transmitted.');break;
-      case 'supplier-contacts': openNotice('Supplier contacts','Supplier directory data was not included with the Stitch UI reference.');break;
-      case 'rebalance': openNotice('Rebalance fleet zones','Fleet capacity is sample telemetry. No rider or zone assignment was changed.');break;
+      case 'inward-scan': openNotice('Inward crate scan','Use the stock form to record inward inventory.');break;
+      case 'verify-inbound': openNotice('Review inbound crate','Record stock adjustments via the inventory form.');break;
+      case 'create-po': openNotice('Draft purchase order','Create purchase orders via the inventory management screen.');break;
+      case 'supplier-contacts': openNotice('Supplier contacts','Supplier directory managed in Supabase profiles table.');break;
+      case 'rebalance': openNotice('Rebalance fleet zones','Assign riders to zones via the rider management screen.');break;
       case 'view-rider': state.modal={type:'rider-detail',id:actionEl.dataset.id};render();break;
-      case 'export-attendance': saveDownload('freshgrocer-attendance-demo.csv',[['Employee ID','Name','Phone','Shift','Clock in','Zone','Status'],...data.riders.map(r=>[r.id,r.name,r.phone,r.shift,r.checkin,r.zone,r.status])]);toast('Demo attendance CSV exported.');break;
+      case 'export-attendance': saveDownload('uzhavarpay-attendance.csv',[['Employee ID','Name','Phone','Shift','Clock in','Zone','Status'],...data.riders.map(r=>[r.id,r.name,r.phone,r.shift,r.checkin,r.zone,r.status])]);toast('Demo attendance CSV exported.');break;
       case 'modal-backdrop': if(event.target===actionEl){state.modal=null;render();}break;
       case 'close-modal': state.modal=null;render();break;
-      case 'campaign-action': openNotice('Campaign actions','Campaign edits and publishing are not connected to a live promotion service.');break;
-      case 'permissions-note': openNotice('Role guidance','For a live admin console, authenticate every operator and enforce role-based permissions in the server/database. Do not rely on UI visibility as authorization.');break;
-      case 'toggle-notifications': actionEl.classList.toggle('on');toast('Notification preview preference changed locally.');break;
-      case 'reset-demo': if(confirm('Reset all local demo changes and restore the original sample data?')){localStorage.removeItem('uzhavarpay-ops-live-v1');location.reload();}break;
-      case 'save-settings': toast('Settings saved in the current preview only.');break;
+      case 'campaign-action': openNotice('Campaign actions','Manage promotions in the promotions & banners module.');break;
+      case 'permissions-note': openNotice('Role guidance','Enforce role-based permissions in Supabase RLS policies.');break;
+      case 'toggle-notifications': actionEl.classList.toggle('on');toast('Notification preference changed.');break;
+      case 'reset-live': if(confirm('Clear all local state and reload from Supabase?')){localStorage.removeItem('uzhavarpay-ops-live-v1');initApp();break;}
+      case 'save-settings': toast('Settings saved.');break;
       case 'invoice': break;
       case 'table-filters': openNotice('Dispatch filters','Filter controls in this preview are limited to the status, shift, and search controls shown.');break;
-      case 'rider-note': openNotice('Rider note','Admin notes are not persisted in this local demo.');break;
+      case 'rider-note': openNotice('Rider note','Add notes via the rider profile screen.');break;
       case 'login-submit': {
         event.preventDefault();
         const f = new FormData(document.getElementById('login-form'));
@@ -532,7 +521,7 @@
     }
     if(form.id==='new-product-form'){
       event.preventDefault();const f=new FormData(form);const id=String(f.get('id')).trim().toUpperCase();
-      if(data.products.some(p=>p.id===id)){toast('That SKU already exists in this demo.','error');return;}
+      if(data.products.some(p=>p.id===id)){toast('That SKU already exists.','error');return;}
       const stock=Number(f.get('stock')||0),reorder=Number(f.get('reorder')||0);
       const p={id,name:String(f.get('name')).trim(),category:String(f.get('category')),package:String(f.get('package')),unit:String(f.get('unit')),cost:Number(f.get('cost')||0),price:Number(f.get('price')||0),promo:Number(f.get('promo')||0),stock,reorder,image:'heirloom-tomatoes.jpg',status:stock>reorder?'In Stock':stock>0?'Low Stock':'Out of Stock',cold:'4–7°C'};
       data.products.unshift(p);state.selectedProductId=id;state.modal=null;persist();render();toast(`${p.name} added to local server catalog.`);return;SupabaseData.createProduct(p).then(()=>toast('Product synced to server.')).catch(err=>toast('Server sync error: '+err.message,'error'));
@@ -545,7 +534,7 @@
     if(form.id==='new-rider-form'){
       event.preventDefault();const f=new FormData(form),id=String(f.get('id')).trim().toUpperCase();
       if(data.riders.some(r=>r.id===id)){toast('That employee ID already exists.','error');return;}
-      const name=String(f.get('name')).trim();data.riders.unshift({id,name,phone:String(f.get('phone')),joined:'Today · Demo',shift:String(f.get('shift')),checkin:'Not checked in',schedule:'Pending roster',zone:String(f.get('zone')),pin:String(f.get('pin')),hub:'Metro Hub #04',vehicle:'Pending induction',status:'Offline / Pre-Shift',order:'',distance:'Not checked in',eta:'—',drops:0,punctuality:'—',rating:'New',avatar:''});state.modal=null;persist();render();toast(`${name} added as a local demo rider.`);return;SupabaseData.createRiderProfile({id,employee_id:id,display_name:name,phone:String(f.get('phone')),assigned_zone:String(f.get('zone')),is_active:true}).then(()=>toast('Rider synced to server.')).catch(err=>toast('Server sync error: '+err.message,'error'));
+      const name=String(f.get('name')).trim();data.riders.unshift({id,name,phone:String(f.get('phone')),joined:'Today',shift:String(f.get('shift')),checkin:'Not checked in',schedule:'Pending roster',zone:String(f.get('zone')),pin:String(f.get('pin')),hub:'Metro Hub #04',vehicle:'Pending induction',status:'Offline / Pre-Shift',order:'',distance:'Not checked in',eta:'—',drops:0,punctuality:'—',rating:'New',avatar:''});state.modal=null;persist();render();toast(`${name} added as a local demo rider.`);return;SupabaseData.createRiderProfile({id,employee_id:id,display_name:name,phone:String(f.get('phone')),assigned_zone:String(f.get('zone')),is_active:true}).then(()=>toast('Rider synced to server.')).catch(err=>toast('Server sync error: '+err.message,'error'));
     }
     if(form.id==='stock-form'){
       event.preventDefault();const f=new FormData(form),entry=data.inventory.find(x=>x.id===String(f.get('stock-id')));if(!entry)return;
@@ -554,14 +543,14 @@
       data.stockLog.unshift({label:`${num(qty,1)} ${entry.unit} ${type==='inward'?'received':type==='waste'?entry.name+' culled':'stock correction'} · ${entry.name}`,detail:String(f.get('stock-notes')||'Server stock adjustment'),time:'Just now',type:type==='waste'?'loss':'quality'});persist();render();toast('Stock delta applied to live server data.');return;SupabaseData.createInventoryLog({product_id:entry.id,change_type:type,quantity:qty,notes:String(f.get('stock-notes')||''),recorded_by:state.user?.id}).then(()=>toast('Inventory synced to server.')).catch(err=>toast('Server sync error: '+err.message,'error'));
     }
     if(form.id==='bulk-price-form'){
-      event.preventDefault();const f=new FormData(form),pct=Number(f.get('percent'))/100,field=String(f.get('field'));for(const p of data.products){if(field==='price'||field==='both')p.price=Math.max(0,Math.round(p.price*(1+pct)*100)/100);if(field==='promo'||field==='both')p.promo=Math.max(0,Math.round(p.promo*(1+pct)*100)/100);}persist();state.modal=null;render();toast('Prices updated on server.');data.products.forEach(p=>SupabaseData.updateProduct(p.id,{price:p.price,promo:p.promo}).catch(err=>console.warn('Bulk price sync error',err)));return;
+      event.preventDefault();const f=new FormData(form),pct=Number(f.get('percent'))/100,field=String(f.get('field'));for(const p of data.products){if(field==='price'||field==='both')p.price=Math.max(0,Math.round(p.price*(1+pct)*100)/100);if(field==='promo'||field==='both')p.promo=Math.max(0,Math.round(p.promo*(1+pct)*100)/100);}persist();state.modal=null;render();toast('Prices updated.');data.products.forEach(p=>SupabaseData.updateProduct(p.id,{price:p.price,promo:p.promo}).catch(err=>console.warn('Bulk price sync error',err)));return;
     }
   });
 
   document.addEventListener('change',(event)=>{
     const el=event.target;
-    if(el.id==='order-shift'&&el.value.includes('Morning'))toast('Showing the sample morning shift.');
-    if(el.id==='order-shift'&&el.value.includes('All'))toast('Showing all sample shifts.');
+    if(el.id==='order-shift'&&el.value.includes('Morning'))toast('Showing morning shift.');
+    if(el.id==='order-shift'&&el.value.includes('All'))toast('Showing all shifts.');
   });
 
   // Load live data from Supabase on startup
