@@ -1,98 +1,110 @@
-# FreshGrocer Ops Core — admin panel
+# Uzhavar Pay — Admin Panel
 
-A responsive, offline-ready admin UI implemented from the supplied Stitch design package. The five detailed reference screens are preserved under `design-reference/`; their images, fonts, and icons are bundled locally so the preview does not depend on a CDN.
+Live admin panel connected to Supabase. All data (products, orders, inventory, riders, coupons) is stored in a shared Supabase database that syncs across the admin panel, customer app, and rider app.
 
-## Screens implemented
+## Architecture
 
-- Executive operations and sales dashboard
-- Vegetable catalog and variant manager
-- Live orders and dispatch pipeline
-- Stock, cold-chain, replenishment, and wastage
-- Rider fleet and shift management
+All three apps connect to **one shared Supabase project**:
 
-The navigation also includes Customer Directory, Promotions & Banners, Payments & P&L, and Store & Admin Settings. Those modules are clearly marked as sample/preview content where the supplied Stitch ZIP did not include a detailed screen.
+| App | Location | Data Source |
+|-----|----------|-------------|
+| Uzhavar Pay Admin Panel | `freshgrocer_admin_panel/` | Supabase REST API |
+| Uzhavar Customer App | `uzhvar/uzhavar_customer_app/` | Supabase Flutter client |
+| Uzhavar Rider App | `delivery app/swiftrider_rider_app/` | Supabase Flutter client |
+
+Changes in any app are reflected in all others through the shared Supabase database.
 
 ## Authentication
 
-The panel supports Supabase email/password authentication with role-based access control (admin, manager, operator, viewer). In demo mode, any email and password will sign in as a demo admin.
+Supabase email/password authentication with role-based access control (admin, manager, operator, viewer).
 
-### Demo mode (default)
+### Live Mode (default)
 
-When no `config.js` is provided or `demoMode.enabled` is `true`, the app auto-signs in a demo user. A visible "DEMO · Local sample data" label appears in the header. No credentials are required — any email/password combination works.
+When `config.js` is provided with Supabase credentials and `demoMode.enabled` is `false`, the app connects to live Supabase Auth.
 
-### Live mode (Supabase)
+### Demo Mode (optional)
 
-1. Copy `config.example.js` to `config.js`:
-   ```bash
-   cp config.example.js config.js
-   ```
-2. Fill in your Supabase project URL and public anon key:
-   ```js
-   supabaseUrl: 'https://YOUR_PROJECT_REF.supabase.co',
-   supabaseAnonKey: 'YOUR_PUBLIC_ANON_KEY',
-   ```
-3. Set `demoMode.enabled` to `false` in `config.js`.
-4. Never commit `config.js` with real secrets. Never put a Supabase service-role key in browser code.
+Set `demoMode.enabled` to `true` in `config.js` for offline testing without Supabase.
 
-### Roles and permissions
+## Configuration
 
-| Role | Capabilities |
-|------|-------------|
-| admin | Full access: catalog, orders, inventory, riders, customers, promotions, finance, settings |
-| manager | Catalog, orders, inventory, promotions, finance; read riders/customers; no settings write |
-| operator | Read catalog/inventory/riders/customers/finance; write orders; adjust inventory |
-| viewer | Read-only access to all modules |
+Copy `config.example.js` to `config.js`:
 
-Role permissions are enforced in the UI and must also be enforced server-side before enabling live writes.
+```bash
+cp config.example.js config.js
+```
+
+Fill in your Supabase credentials:
+
+```js
+const config = {
+  supabaseUrl: 'https://YOUR_PROJECT_REF.supabase.co',
+  supabaseAnonKey: 'YOUR_PUBLIC_ANON_KEY',
+  features: {
+    demoMode: false,   // Set to false for live mode
+  },
+  demoMode: { enabled: false },
+  // ...
+};
+```
+
+**Never commit `config.js`** — it is gitignored. Only `config.example.js` is committed.
 
 ## Run locally
-
-No package installation is needed. From this folder, run:
 
 ```bash
 python3 -m http.server 4173 --bind 0.0.0.0
 ```
 
-Then open `http://localhost:4173` in a browser. In a hosted preview, use the preview URL provided by the environment.
+Open `http://localhost:4173`. Sign in with your Supabase admin credentials.
 
-## Configuration (`config.js`)
+## Database Schema
 
-Create `config.js` from `config.example.js`. Allowed keys:
+Apply the unified schema to your Supabase project:
 
-| Key | Type | Description |
-|-----|------|-------------|
-| `supabaseUrl` | string | Supabase project URL (live mode only) |
-| `supabaseAnonKey` | string | Supabase public anon key (live mode only, browser-safe) |
-| `appName` | string | Application display name |
-| `appVersion` | string | Application version |
-| `features.demoMode` | boolean | Show demo mode banner and allow demo sign-in |
-| `features.enableRefunds` | boolean | Requires secure payment service before enabling |
-| `features.enableLiveLocation` | boolean | Requires rider GPS integration |
-| `features.enableEmailNotifications` | boolean | Requires SMTP/email provider |
+```sql
+-- Run in Supabase SQL Editor
+supabase/migrations/20261116000000_unified_system.sql
+supabase/migrations/20261116000001_customer_app_rpcs.sql
+```
 
-## Demo data and integration boundary
+This creates shared tables: `profiles`, `products`, `orders`, `order_items`, `coupons`, `inventory_log`, `rider_profiles`, `rider_shifts`, `rider_tasks`, `audit_log`.
 
-This is a local UI prototype, not a production-connected admin system. Product, order, inventory, rider, and campaign records are sample data stored in this browser's `localStorage`. A visible demo label is present in the header. The panel has no authentication, Supabase connection, customer messaging, SMS, GPS, supplier PO transmission, payment/refund integration, or live sensor feed unless `config.js` connects to Supabase. UI actions that would contact an external system are intentionally simulated or disabled with an explanation.
+## Edge Functions
 
-Before production, connect a server-side API with authenticated operator sessions and role-based authorization. Enforce authorization and validation in the backend/database; never expose a service-role key in browser code. Review the data model and operational permissions before enabling catalog, dispatch, finance, customer, or rider writes.
+Deploy Razorpay payment functions:
 
-## Security boundaries
+```bash
+supabase functions deploy create-razorpay-order
+supabase functions deploy verify-razorpay-payment
+supabase functions deploy razorpay-webhook
+supabase functions deploy finalize-order
+```
 
-- **No privileged credentials in browser code**: Only Supabase URL and anon key belong in `config.js`. Never include service-role keys, Razorpay secrets, or payment secrets.
-- **Demo mode is clearly labeled**: Fixture metrics, customers, payments, rider locations, or sensor readings are never presented as live.
-- **No seeded marketplace data**: All records are local demo samples.
-- **Razorpay test mode only**: If payment integration is added, reject non-test config server-side; key ID must begin `rzp_test_`; secrets server-side only.
-- **Order prices and coupon eligibility recalculated server-side**: Never trust client totals.
-- **Courier/rider tracking disabled**: Until a real fulfilment data source is connected.
-- **Draft customer receipts only**: No GST/tax invoice claims; no invented seller/tax details.
+Set secrets (server-side only):
+
+```bash
+supabase secrets set \
+  RAZORPAY_KEY_ID='rzp_test_YOUR_KEY' \
+  RAZORPAY_KEY_SECRET='YOUR_SECRET' \
+  RAZORPAY_WEBHOOK_SECRET='YOUR_SECRET'
+```
 
 ## Verification
 
 ```bash
-node --check app.js      # Syntax check
-node tests/smoke.js      # Smoke tests (routes, modals, inventory, orders)
+node --check app.js
+node --check auth.js
+node tests/smoke.js
+node tests/auth_crud.js
 ```
 
-## Design source
+All tests pass with empty initial state — no demo data is hardcoded.
 
-The original per-screen Stitch `code.html`, `screen.png`, and `DESIGN.md` files are retained in `design-reference/`. The app uses bundled Inter, Plus Jakarta Sans, and JetBrains Mono font files and the supplied public Stitch image assets.
+## Security
+
+- No `service_role` key in browser code
+- `config.js` is gitignored
+- Razorpay secrets server-side only
+- Row Level Security on all tables
+- Server-side price and coupon validation
