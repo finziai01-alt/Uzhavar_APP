@@ -10,7 +10,6 @@ global.localStorage = {
   removeItem: (key) => { delete storage[key]; },
 };
 
-// Mock SupabaseData for test environment
 global.SupabaseData = {
   getProducts: () => Promise.resolve([]),
   getOrders: () => Promise.resolve([]),
@@ -35,7 +34,6 @@ global.document = {
   addEventListener: (name, fn) => { listeners[name] = fn; },
 };
 
-// Shared form values store for mock FormData
 let formValues = {};
 global.FormData = class TestFormData {
   constructor() { this.values = { ...formValues }; formValues = {}; }
@@ -55,7 +53,6 @@ function click(selector, dataset) {
 }
 function openView(view) { click('[data-view]', { view }); }
 
-// Wait for async initApp to complete, then run tests
 setTimeout(() => {
   try {
     assert.match(markup, /Dashboard &amp; Analytics/);
@@ -90,12 +87,11 @@ setTimeout(() => {
     }
 
     click('[data-action]', { action: 'quick-order' });
-    assert.match(markup, /Create Demo Order/);
+    assert.match(markup, /Create Order/);
     submitForm('new-order-form', {
       customer: 'Smoke Test Buyer', mode: 'Prepaid', area: 'Demo address', pin: '600001', slot: '18:30 – 19:15', weight: '2.3', total: '18.50'
     });
     assert.match(markup, /Smoke Test Buyer/);
-    // Order ID starts from 9841 (no seed data, base is 9840)
     assert.match(markup, /FG-984[1-9]/);
 
     console.log('FreshGrocer admin panel smoke tests passed: routes, product modal, inventory tabs, live order creation.');

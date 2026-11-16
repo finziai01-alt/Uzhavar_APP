@@ -10,7 +10,6 @@ global.localStorage = {
   removeItem: (key) => { delete storage[key]; },
 };
 
-// Mock SupabaseData for test environment
 global.SupabaseData = {
   getProducts: () => Promise.resolve([]),
   getOrders: () => Promise.resolve([]),
@@ -35,7 +34,6 @@ global.document = {
   addEventListener: (name, fn) => { listeners[name] = fn; },
 };
 
-// Shared form values store for mock FormData
 let formValues = {};
 global.FormData = class TestFormData {
   constructor() { this.values = { ...formValues }; formValues = {}; }
@@ -55,42 +53,33 @@ function click(selector, dataset) {
 }
 function openView(view) { click('[data-view]', { view }); }
 
-// Wait for async initApp to complete, then run tests
 setTimeout(() => {
   try {
-    // ── Auth tests ──
     assert.ok(window.Auth, 'Auth module is exposed globally');
     assert.ok(typeof window.Auth.login === 'function', 'Auth.login exists');
     assert.ok(typeof window.Auth.logout === 'function', 'Auth.logout exists');
     assert.ok(typeof window.Auth.hasPermission === 'function', 'Auth.hasPermission exists');
     assert.ok(typeof window.Auth.isAuthenticatedUser === 'function', 'Auth.isAuthenticatedUser exists');
 
-    // Demo mode auto-sign-in
     assert.ok(window.Auth.isAuthenticatedUser(), 'Demo mode auto-signs in');
     assert.equal(window.Auth.getCurrentUser().role, 'admin', 'Demo user is admin');
 
-    // Role-based permissions
     const auth = window.Auth;
     assert.ok(auth.hasPermission('products.write'), 'Admin can write products');
     assert.ok(auth.hasPermission('orders.dispatch'), 'Admin can dispatch orders');
     assert.ok(auth.hasPermission('settings.write'), 'Admin can write settings');
     assert.ok(auth.hasPermission('finance.read'), 'Admin can read finance');
 
-    // ── UI tests ──
-    // Login page should NOT render when authenticated (demo mode)
     assert.ok(!markup.includes('Sign in'), 'Login page not shown when authenticated');
     assert.match(markup, /Dashboard &amp; Analytics/, 'Dashboard renders when authenticated');
 
-    // Navigate to products view
     openView('products');
     assert.match(markup, /Vegetable Catalog &amp; Variants/, 'Products route renders');
 
-    // Test product CRUD via modal
     openView('products');
     click('[data-action]', { action: 'add-product' });
     assert.match(markup, /Add New Vegetable/, 'Product add modal opens');
 
-    // Test inventory tab switching
     for (const [tab, expected] of [
       ['inward', /Inbound Crates/],
       ['adjust', /Stock Adjustments &amp; Wastage Log/],
@@ -102,18 +91,15 @@ setTimeout(() => {
       assert.match(markup, expected, `inventory ${tab} tab should render its content`);
     }
 
-    // Test order creation
     openView('products');
     click('[data-action]', { action: 'quick-order' });
-    assert.match(markup, /Create Demo Order/, 'Quick order modal opens');
+    assert.match(markup, /Create Order/, 'Quick order modal opens');
     submitForm('new-order-form', {
       customer: 'CRUD Test Buyer', mode: 'Prepaid', area: 'Test address', pin: '600001', slot: '18:30 – 19:15', weight: '2.3', total: '18.50'
     });
     assert.match(markup, /CRUD Test Buyer/, 'Order created with customer name');
-    // Order ID starts from 9841 (no seed data, base is 9840)
     assert.match(markup, /FG-984[1-9]/, 'Order ID generated from server sequence');
 
-    // Test logout flow
     click('[data-action]', { action: 'logout' });
     assert.ok(markup.includes('Sign in'), 'Login page shows after logout');
     assert.ok(!window.Auth.isAuthenticatedUser(), 'Auth user is logged out');
