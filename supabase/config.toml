@@ -1,0 +1,14 @@
+# Uzhavan Pay — Shared Supabase Project Config
+# Admin panel + Customer app + Rider app all connect to this project
+
+[functions.create-razorpay-order]
+verify_jwt = true
+
+[functions.verify-razorpay-payment]
+verify_jwt = true
+
+[functions.razorpay-webhook]
+verify_jwt = false
+
+[functions.finalize-order]
+verify_jwt = true
