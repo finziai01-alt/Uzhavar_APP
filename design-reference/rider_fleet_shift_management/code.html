@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"tertiary-fixed-dim":"#ffb95f","surface-container-low":"#f2f3ff","outline":"#6d7a72","on-secondary-fixed-variant":"#003ea8","secondary-fixed":"#dbe1ff","outline-variant":"#bccac0","on-primary-fixed-variant":"#005137","surface-variant":"#dae2fd","on-tertiary-container":"#fffbff","background":"#faf8ff","on-secondary-container":"#fefcff","surface-tint":"#006c4a","error":"#ba1a1a","error-container":"#ffdad6","on-surface-variant":"#3d4a42","secondary":"#0051d5","on-secondary-fixed":"#00174b","on-background":"#131b2e","secondary-fixed-dim":"#b4c5ff","surface-container-lowest":"#ffffff","on-tertiary":"#ffffff","primary-fixed-dim":"#68dba9","secondary-container":"#316bf3","on-primary":"#ffffff","inverse-surface":"#283044","surface-container-high":"#e2e7ff","inverse-on-surface":"#eef0ff","on-error-container":"#93000a","on-tertiary-fixed":"#2a1700","surface-container":"#eaedff","surface-container-highest":"#dae2fd","tertiary":"#825100","primary":"#006948","on-tertiary-fixed-variant":"#653e00","primary-fixed":"#85f8c4","primary-container":"#00855d","on-primary-container":"#f5fff7","on-primary-fixed":"#002114","surface-bright":"#faf8ff","on-error":"#ffffff","surface":"#faf8ff","on-secondary":"#ffffff","inverse-primary":"#68dba9","tertiary-fixed":"#ffddb8","tertiary-container":"#a36700","on-surface":"#131b2e","surface-dim":"#d2d9f4"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"1.25rem","space-xl":"1.75rem","space-xs":"0.25rem","margin-md":"1.5rem","space-md":"0.75rem","margin":"1rem","margin-lg":"2rem","gutter":"1rem","space-sm":"0.5rem","gutter-lg":"1.5rem"},"fontFamily":{"metric-mono-md":["JetBrains Mono"],"headline-md":["Plus Jakarta Sans"],"body-lg":["Inter"],"headline-lg":["Plus Jakarta Sans"],"metric-mono-lg":["JetBrains Mono"],"body-sm":["Inter"],"label-md":["Inter"],"headline-sm":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"body-md":["Inter"],"metric-mono-sm":["JetBrains Mono"],"display-lg-mobile":["Plus Jakarta Sans"],"label-lg":["Inter"]},"fontSize":{"metric-mono-md":["13px",{"lineHeight":"16px","fontWeight":"500"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["15px",{"lineHeight":"22px","fontWeight":"400"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"metric-mono-lg":["20px",{"lineHeight":"24px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"label-md":["11px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}],"display-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"metric-mono-sm":["11px",{"lineHeight":"14px","fontWeight":"500"}],"display-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"700"}],"label-lg":["13px",{"lineHeight":"18px","fontWeight":"500"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest z-50 flex flex-col shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-space-md flex items-center justify-between bg-surface-container-lowest"><div class="flex items-center gap-space-sm"><img alt="FreshGrocer Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD8FEejqPdAMP2LXwW_xZ8LQrjgwA7JPvtTTOlPhezIoZEvG4EAblQeKdt-qFO5hyA-dHJ23nY7CjQG5MjXZ7WjN3Wid98V-1e61EPORvUxIttiK2_We-DnPtQgKsjYJUQSbv6fdiQ1qI9J1J1e9rjhlW6glLXiElovSL3lVIHVTLPaW7TOg3u3kAQnDKkmk-mdNQa4lh3eSZ68Zrf9_pjfzehuf1rarDAPVB9KRG0"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">FreshGrocer</span><span class="font-label-md text-label-md text-primary uppercase font-bold tracking-wider">Ops Core</span></div></div><span class="font-metric-mono-sm text-metric-mono-sm bg-surface-container text-on-surface px-space-xs py-0.5 rounded">v2.4</span></div><nav class="flex-1 overflow-y-auto px-space-sm py-space-sm space-y-space-md" data-active-classes="bg-primary text-on-primary font-semibold"><div class="space-y-space-xs"><p class="px-space-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Main</p><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[18px]">analytics</span><span class="font-label-lg text-label-lg">Dashboard &amp; Analytics</span></a></div><div class="space-y-space-xs"><p class="px-space-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Catalog</p><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="products" href="#"><span class="material-symbols-outlined text-[18px]">nutrition</span><span class="font-label-lg text-label-lg">Product &amp; Categories</span></a></div><div class="space-y-space-xs"><p class="px-space-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Fulfillment</p><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="orders" href="#"><span class="material-symbols-outlined text-[18px]">local_shipping</span><span class="font-label-lg text-label-lg">Orders &amp; Dispatch</span><span class="ml-auto font-metric-mono-sm text-metric-mono-sm bg-primary-fixed-dim text-on-primary-fixed-variant px-space-xs rounded-full">24</span></a></div><div class="space-y-space-xs"><p class="px-space-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Inventory</p><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="inventory" href="#"><span class="material-symbols-outlined text-[18px]">warehouse</span><span class="font-label-lg text-label-lg">Stock &amp; Wastage</span></a></div><div class="space-y-space-xs"><p class="px-space-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Logistics</p><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg transition-all bg-primary text-on-primary font-semibold" data-path="riders" href="#"><span class="material-symbols-outlined text-[18px]">two_wheeler</span><span class="font-label-lg text-label-lg">Rider Fleet &amp; Shifts</span></a></div><div class="space-y-space-xs"><p class="px-space-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Customers</p><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="customers" href="#"><span class="material-symbols-outlined text-[18px]">group</span><span class="font-label-lg text-label-lg">Customer Directory</span></a></div><div class="space-y-space-xs"><p class="px-space-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Marketing</p><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="marketing" href="#"><span class="material-symbols-outlined text-[18px]">campaign</span><span class="font-label-lg text-label-lg">Promotions &amp; Banners</span></a></div><div class="space-y-space-xs"><p class="px-space-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Finance</p><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="finance" href="#"><span class="material-symbols-outlined text-[18px]">account_balance_wallet</span><span class="font-label-lg text-label-lg">Payments &amp; P&amp;L</span></a></div><div class="space-y-space-xs"><p class="px-space-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">System</p><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span class="font-label-lg text-label-lg">Store &amp; Admin Settings</span></a></div></nav><div class="p-space-sm bg-surface-container-low"><div class="p-space-sm bg-surface-container-lowest rounded-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)] flex items-center justify-between"><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface-variant">Cold Chain Node</span><span class="font-metric-mono-sm text-metric-mono-sm text-on-surface font-semibold">CC-TEMP: 3.4°C</span></div><span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="w-full h-full px-gutter-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md flex-1 max-w-2xl"><div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-1.5 rounded-lg text-on-surface cursor-pointer hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-primary text-[18px]">hub</span><span class="font-label-md text-label-md font-semibold truncate">Metro Hub #04 - South Central</span><span class="material-symbols-outlined text-on-surface-variant text-[16px]">arrow_drop_down</span></div><div class="hidden xl:flex items-center gap-space-xs bg-primary-container px-space-sm py-1 rounded-full text-on-primary-container"><span class="w-2 h-2 rounded-full bg-primary-fixed"></span><span class="font-label-md text-label-md font-medium tracking-tight">System Healthy • 99.8% On-Time</span></div><div class="relative flex-1"><span class="material-symbols-outlined absolute left-space-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span><input class="w-full bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm pl-9 pr-space-sm py-1.5 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary transition-all" placeholder="Search vegetable SKU, order ID, rider, or phone..." type="text"/></div></div><div class="flex items-center gap-space-md"><button class="flex items-center gap-space-xs bg-primary hover:bg-primary-container text-on-primary px-space-sm py-1.5 rounded-lg font-label-lg text-label-lg transition-colors shadow-[0_1px_3px_rgba(0,0,0,0.04)]"><span class="material-symbols-outlined text-[18px]">add</span><span>Quick Add</span></button><div class="relative cursor-pointer"><button class="w-9 h-9 rounded-lg bg-surface-container-low hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span></button><span class="absolute -top-1 -right-1 w-4 h-4 bg-error text-on-error font-metric-mono-sm text-[10px] rounded-full flex items-center justify-center font-bold">3</span></div><div class="flex items-center gap-space-sm pl-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrItocZTeFiGGpxFYcqNQMXX41ZJCexuR7nh8reshfVUH6ktNM_QFR15XocJ7GsNqOGJ9QSI30cIT-qA5drjm9oNgZr2WhWGzfS0IW62xqppvjPaUTpFwKgV6ESM25_mPSHZVkm8iHcFvBV87iceZ48zsz9UW-deorKG2J0yLttOVI6G5rY7OJiKkgR6mTvFo9Qtn2DkHO_g3Zxk0AOShdOmVFOaf00-YUWXKsUb8g"/><div class="flex flex-col text-left"><span class="font-label-lg text-label-lg text-on-surface leading-none font-semibold">Marcus Vance</span><span class="font-label-md text-label-md text-primary font-medium mt-0.5">Ops Lead</span></div></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<div class="w-full px-gutter-lg py-space-lg flex flex-col gap-space-lg">
+<!-- Top Context & Header Action Deck -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs text-primary font-label-md text-label-md uppercase tracking-wider">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span>Logistics Workforce Orchestration • Module E</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-0.5">Rider Fleet &amp; Shift Tracker</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Live cold-chain dispatch rosters, shift check-ins, transit SLA telemetry, and zone density control.</p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="flex items-center gap-space-xs bg-surface-container-high hover:bg-surface-container-highest text-on-surface px-space-md py-2 rounded-lg font-label-lg text-label-lg transition-all shadow-sm" id="exportAttendanceBtn">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Export Attendance Sheet</span>
+</button>
+<button class="flex items-center gap-space-xs bg-primary hover:bg-primary-container text-on-primary px-space-md py-2 rounded-lg font-label-lg text-label-lg transition-all shadow-sm" id="openRegisterModal">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+<span>+ Register New Rider Employee</span>
+</button>
+</div>
+</div>
+<!-- Tier 1: Real-Time Operational KPI Metrics -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-space-md">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Total Enrolled</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">badge</span>
+</div>
+<div class="my-space-sm">
+<div class="font-metric-mono-lg text-display-lg text-on-surface leading-tight font-bold">64</div>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Permanent Fleet Employees</span>
+</div>
+<div class="flex items-center gap-1 font-body-sm text-body-sm text-primary">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span>+3 recruited this week</span>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Active on Duty</span>
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-metric-mono-sm text-metric-mono-sm font-semibold">
+            75% Roster
+          </span>
+</div>
+<div class="my-space-sm">
+<div class="font-metric-mono-lg text-display-lg text-on-surface leading-tight font-bold">48 <span class="font-headline-sm text-headline-sm text-on-surface-variant font-normal">/ 64</span></div>
+<div class="flex items-center gap-2 mt-1">
+<span class="inline-flex items-center gap-1 font-label-md text-label-md text-secondary"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>32 Active</span>
+<span class="inline-flex items-center gap-1 font-label-md text-label-md text-primary"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>12 Hub</span>
+<span class="inline-flex items-center gap-1 font-label-md text-label-md text-tertiary"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>4 Break</span>
+</div>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 flex overflow-hidden">
+<div class="bg-secondary h-full" style="width: 66.6%;"></div>
+<div class="bg-primary h-full" style="width: 25%;"></div>
+<div class="bg-tertiary h-full" style="width: 8.4%;"></div>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Today Completed</span>
+<span class="material-symbols-outlined text-primary text-[20px]">task_alt</span>
+</div>
+<div class="my-space-sm">
+<div class="font-metric-mono-lg text-display-lg text-on-surface leading-tight font-bold">952</div>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Delivered Produce Orders</span>
+</div>
+<div class="flex items-center gap-1 font-body-sm text-body-sm text-primary">
+<span class="material-symbols-outlined text-[16px]">speed</span>
+<span>19.8 orders / rider avg</span>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Average Transit Time</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-on-surface-variant">Max: 28m</span>
+</div>
+<div class="my-space-sm">
+<div class="font-metric-mono-lg text-display-lg text-on-surface leading-tight font-bold">21.4 <span class="font-headline-sm text-headline-sm text-on-surface-variant font-normal">min</span></div>
+<span class="font-label-md text-label-md text-primary font-medium">Optimal Produce Freshness Zone</span>
+</div>
+<div class="flex items-center gap-1 font-body-sm text-body-sm text-primary">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>-6.6 min below ceiling</span>
+</div>
+</div>
+<!-- KPI 5 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Fleet Punctuality SLA</span>
+<span class="material-symbols-outlined text-primary text-[20px]">verified</span>
+</div>
+<div class="my-space-sm">
+<div class="font-metric-mono-lg text-display-lg text-on-surface leading-tight font-bold">98.2%</div>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Target: &gt; 97.0%</span>
+</div>
+<div class="flex items-center gap-1 font-body-sm text-body-sm text-primary">
+<span class="material-symbols-outlined text-[16px]">north_east</span>
+<span>+0.4% from yesterday</span>
+</div>
+</div>
+</div>
+<!-- Main Workspace Layout: Filter controls + Grid + Live Capacity Drawer -->
+<div class="grid grid-cols-1 xl:grid-cols-4 gap-space-lg items-start">
+<!-- Primary Fleet Table Module (Left 3 Columns) -->
+<div class="xl:col-span-3 flex flex-col gap-space-md">
+<!-- Controls & Filters Strip -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-md">
+<!-- Quick Search Bar -->
+<div class="relative flex-1 min-w-[280px]">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+<input class="w-full bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm pl-10 pr-space-md py-2.5 rounded-lg focus:outline-none focus:bg-surface-container transition-all" id="riderSearchInput" placeholder="Search by name, ID (e.g. EMP-RD-104), or phone number..." type="text"/>
+</div>
+<!-- Segmented Shift Toggles -->
+<div class="flex items-center overflow-x-auto gap-1 bg-surface-container-low p-1 rounded-lg">
+<button class="shift-filter-btn px-space-sm py-1 rounded font-label-md text-label-md font-semibold bg-surface-container-lowest text-on-surface shadow-sm" data-shift="all">All Shifts</button>
+<button class="shift-filter-btn px-space-sm py-1 rounded font-label-md text-label-md text-on-surface-variant hover:text-on-surface" data-shift="morning">Morning (06:00 - 14:00)</button>
+<button class="shift-filter-btn px-space-sm py-1 rounded font-label-md text-label-md text-on-surface-variant hover:text-on-surface" data-shift="evening">Evening (14:00 - 22:00)</button>
+<button class="shift-filter-btn px-space-sm py-1 rounded font-label-md text-label-md text-on-surface-variant hover:text-on-surface" data-shift="flex">Full Day Flex</button>
+</div>
+</div>
+<!-- Secondary Status Badges and Counter Row -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-space-xs overflow-x-auto">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase font-bold mr-1">Rider Filter:</span>
+<button class="status-pill-btn flex items-center gap-1.5 px-space-sm py-1 rounded-full font-label-md text-label-md font-semibold bg-primary-fixed text-on-primary-fixed" data-status="all">
+<span>All Rostered</span>
+<span class="font-metric-mono-sm text-metric-mono-sm px-1.5 py-0.2 rounded-full bg-primary text-on-primary">64</span>
+</button>
+<button class="status-pill-btn flex items-center gap-1.5 px-space-sm py-1 rounded-full font-label-md text-label-md font-medium bg-surface-container text-on-surface-variant hover:text-on-surface" data-status="active">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>Active</span>
+<span class="font-metric-mono-sm text-metric-mono-sm">48</span>
+</button>
+<button class="status-pill-btn flex items-center gap-1.5 px-space-sm py-1 rounded-full font-label-md text-label-md font-medium bg-surface-container text-on-surface-variant hover:text-on-surface" data-status="offline">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span>Offline</span>
+<span class="font-metric-mono-sm text-metric-mono-sm">16</span>
+</button>
+<button class="status-pill-btn flex items-center gap-1.5 px-space-sm py-1 rounded-full font-label-md text-label-md font-medium bg-error-container text-on-error-container hover:brightness-95" data-status="pending">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span>Verification Pending</span>
+<span class="font-metric-mono-sm text-metric-mono-sm font-bold">3</span>
+</button>
+</div>
+<div class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">info</span>
+<span>Showing <span class="font-metric-mono-sm text-metric-mono-sm font-bold text-on-surface" id="filteredRidersCount">64</span> rider records</span>
+</div>
+</div>
+</div>
+<!-- Rider Roster & Telemetry Data Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[960px]">
+<thead>
+<tr class="bg-surface-container-low font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+<th class="py-3 px-space-md">Rider Employee</th>
+<th class="py-3 px-space-md">Shift &amp; Clock-In</th>
+<th class="py-3 px-space-md">Zone &amp; Hub Node</th>
+<th class="py-3 px-space-md">Live Transit Status</th>
+<th class="py-3 px-space-md">Today's Metrics</th>
+<th class="py-3 px-space-md">HR &amp; Vehicle Docs</th>
+<th class="py-3 px-space-md text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low font-body-sm text-body-sm" id="riderTableBody">
+<!-- Row 1: Alex Rivera (Active Delivery) -->
+<tr class="rider-row hover:bg-surface-container-low transition-colors" data-search="EMP-RD-104 Alex Rivera +91 98450 11204" data-shift="morning" data-status="active">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="Close up operational ID photo of a young male delivery rider wearing a green FreshGrocer uniform and logistics safety cap, bright daylight studio lighting with crisp details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQ-Q_SZF5rVG7ZHtUUc0ad5T9gwgZAVfD7ZdDvKOv8SX9ufJtL4cCw3xSjILkz6Holl0Ty2i9tlvIK0ziyVul3NBiANvnkDPBuXnMK8zIABruWu-C_3N4uVeeM4Z9UGQaFwsy4IB9S6GkwH8DOLr66P2jKmTjW6b7BVFXOSZuu75JfB5mATTmLIYC0FnpkfTzPt9hXjrKavEoSk9HhXLdp2moRfwj3YL_s2dvEfGW6"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Alex Rivera</span>
+<span class="font-metric-mono-sm text-metric-mono-sm bg-surface-container px-1 py-0.2 rounded text-on-surface-variant">RD-104</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">+91 98450 11204</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-outline">Joined: Feb 2023</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Morning Shift</span>
+<span class="font-body-sm text-body-sm text-primary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                        Checked in 05:58 AM
+                      </span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-on-surface-variant">06:00 - 14:00 (On schedule)</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Zone A: Downtown Central</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">PIN: 560001 • Hub #04</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-primary">Micro-cold unit #2</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md font-semibold w-max">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+                        On Delivery #FG-9842
+                      </span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-on-surface-variant">1.2 km away • ETA 6 min</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 font-label-lg text-label-lg font-semibold text-on-surface">
+<span class="font-metric-mono-md text-metric-mono-md text-primary">24 drops</span>
+<span class="text-outline">/</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-tertiary">★ 4.9</span>
+</div>
+<span class="font-metric-mono-sm text-metric-mono-sm text-primary font-medium">100% Punctuality SLA</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container font-metric-mono-sm text-metric-mono-sm text-primary font-semibold w-max">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                        Verified
+                      </span>
+<span class="font-metric-mono-sm text-[10px] text-outline">DL • ID • Vehicle RC</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="relative inline-block text-left">
+<button class="rider-action-btn w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Priya Sharma (Available at Hub) -->
+<tr class="rider-row hover:bg-surface-container-low transition-colors" data-search="EMP-RD-108 Priya Sharma +91 97312 88401" data-shift="morning" data-status="active">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="Portrait photo of a professional female courier rider with hair tied back, wearing high-visibility logistics vest, clean natural outdoor daylight setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC30R3KCCiWgSMWu5q1Ye1-eDAA-55P_7t3R4pUmNN_0Ne-QNan5TrOibWxXS6HtCFGgPaYy0MXImtmS0p3ujD5iiM3tdzv56_YMSBsipLWspIYIqlLGbIByQUSrowGEQSLNdnLgIA2Vebd4cEp7ykaMn68EYRvOwqLtJ3cysrXTUXtZ2ULLx6H--rWVXefdqnLFB5JAcm85AUWRtcdayaagu9Ueg7HlGne5Vq5lMD7"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Priya Sharma</span>
+<span class="font-metric-mono-sm text-metric-mono-sm bg-surface-container px-1 py-0.2 rounded text-on-surface-variant">RD-108</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">+91 97312 88401</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-outline">Joined: Nov 2022</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Morning Shift</span>
+<span class="font-body-sm text-body-sm text-primary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                        Checked in 06:02 AM
+                      </span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-on-surface-variant">06:00 - 14:00 (+2 min)</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Zone B: Tech Park Corridor</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">PIN: 560103 • Hub #04</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-primary">EV Cargo Bike #09</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-md text-label-md font-semibold w-max">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                        Available at Hub
+                      </span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-on-surface-variant">Ready for dispatch (Queue #1)</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 font-label-lg text-label-lg font-semibold text-on-surface">
+<span class="font-metric-mono-md text-metric-mono-md text-primary">18 drops</span>
+<span class="text-outline">/</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-tertiary">★ 5.0</span>
+</div>
+<span class="font-metric-mono-sm text-metric-mono-sm text-primary font-medium">99.1% Punctuality SLA</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container font-metric-mono-sm text-metric-mono-sm text-primary font-semibold w-max">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                        Verified
+                      </span>
+<span class="font-metric-mono-sm text-[10px] text-outline">DL • ID • Vehicle RC</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<button class="rider-action-btn w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Devraj Nair (On Break) -->
+<tr class="rider-row hover:bg-surface-container-low transition-colors" data-search="EMP-RD-112 Devraj Nair +91 99801 44290" data-shift="morning" data-status="active">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="Portrait of an experienced male Indian delivery personnel in work polo shirt against an urban logistics depot background, warm ambient lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuConAnCxni_HX4MrmeRaqNaEh0iB3FunF0Na9rLRG833KUfJgMDf3xXgn6J0NIjl_xG1yrKNzAQBr5lwZta8G9BorSJmDR7IY8bzzFKDdoNDimC-sJPGhE27fXGxz7cEWYkglvZvnkvxHarfvPSq3GDxNBgBrusAicozHdTgp4GN3tTF3jQs1f2Vr7nQmH7x5uHTzlXhQfrO5ni4H52b3NKn5zmQ3CFckjNfvfI3qPq"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-tertiary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Devraj Nair</span>
+<span class="font-metric-mono-sm text-metric-mono-sm bg-surface-container px-1 py-0.2 rounded text-on-surface-variant">RD-112</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">+91 99801 44290</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-outline">Joined: Aug 2023</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Morning Shift</span>
+<span class="font-body-sm text-body-sm text-primary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                        Checked in 05:49 AM
+                      </span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-on-surface-variant">06:00 - 14:00 (On schedule)</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Zone C: Green Park &amp; Indiranagar</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">PIN: 560038 • Hub #04</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-primary">Thermal Bag #T-14</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md font-semibold w-max">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                        On Duty Break (18m left)
+                      </span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-on-surface-variant">Break window: 11:30 - 12:00</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 font-label-lg text-label-lg font-semibold text-on-surface">
+<span class="font-metric-mono-md text-metric-mono-md text-primary">15 drops</span>
+<span class="text-outline">/</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-tertiary">★ 4.8</span>
+</div>
+<span class="font-metric-mono-sm text-metric-mono-sm text-primary font-medium">97.6% Punctuality SLA</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container font-metric-mono-sm text-metric-mono-sm text-primary font-semibold w-max">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                        Verified
+                      </span>
+<span class="font-metric-mono-sm text-[10px] text-outline">DL • ID • Vehicle RC</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<button class="rider-action-btn w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 4: Karan Patel (Evening Shift - Offline / Scheduled) -->
+<tr class="rider-row hover:bg-surface-container-low transition-colors" data-search="EMP-RD-124 Karan Patel +91 96190 55122" data-shift="evening" data-status="offline">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant font-headline-sm text-headline-sm">
+                          KP
+                        </div>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-outline ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Karan Patel</span>
+<span class="font-metric-mono-sm text-metric-mono-sm bg-surface-container px-1 py-0.2 rounded text-on-surface-variant">RD-124</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">+91 96190 55122</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-outline">Joined: Jan 2024</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Evening Shift</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Not checked in yet</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-on-surface-variant">Starts 14:00 PM (In 2h 15m)</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Zone D: South Ring Suburbs</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">PIN: 560076 • Hub #04</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-outline">Unassigned Vehicle</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md font-semibold w-max">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                        Offline / Pre-Shift
+                      </span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-outline">Expected clock-in 13:50</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 font-label-lg text-label-lg font-semibold text-on-surface">
+<span class="font-metric-mono-md text-metric-mono-md text-outline">0 drops</span>
+<span class="text-outline">/</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-tertiary">★ 4.7</span>
+</div>
+<span class="font-metric-mono-sm text-metric-mono-sm text-outline">Yesterday: 21 drops</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container font-metric-mono-sm text-metric-mono-sm text-primary font-semibold w-max">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                        Verified
+                      </span>
+<span class="font-metric-mono-sm text-[10px] text-outline">DL • ID • Vehicle RC</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<button class="rider-action-btn w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 5: Sneha Reddy (Document Verification Pending) -->
+<tr class="rider-row hover:bg-surface-container-low transition-colors" data-search="EMP-RD-131 Sneha Reddy +91 94480 77109" data-shift="flex" data-status="pending">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-error-container text-on-error-container flex items-center justify-center font-headline-sm text-headline-sm">
+                          SR
+                        </div>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-error ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Sneha Reddy</span>
+<span class="font-metric-mono-sm text-metric-mono-sm bg-surface-container px-1 py-0.2 rounded text-on-surface-variant">RD-131</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">+91 94480 77109</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-error font-medium">Onboarding 24h ago</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Full Day Flex</span>
+<span class="font-body-sm text-body-sm text-error flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">block</span>
+                        Shift Locked
+                      </span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-on-surface-variant">Pending admin approval</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Zone B: Tech Park Corridor</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Assigned for induction</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-outline">Hub #04 Central Desk</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-md text-label-md font-semibold w-max">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                        Docs Incomplete
+                      </span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-error">Commercial DL Expired</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-metric-mono-sm text-metric-mono-sm text-outline">New Enrollee</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Trial Shift Pending</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-error-container font-metric-mono-sm text-metric-mono-sm text-on-error-container font-bold w-max">
+                        Action Required
+                      </span>
+<span class="font-metric-mono-sm text-[10px] text-error">Re-upload valid DL scan</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<button class="rider-action-btn w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 6: Farhan Akhtar (Active Delivery) -->
+<tr class="rider-row hover:bg-surface-container-low transition-colors" data-search="EMP-RD-115 Farhan Akhtar +91 98860 33021" data-shift="morning" data-status="active">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-headline-sm text-headline-sm">
+                          FA
+                        </div>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Farhan Akhtar</span>
+<span class="font-metric-mono-sm text-metric-mono-sm bg-surface-container px-1 py-0.2 rounded text-on-surface-variant">RD-115</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">+91 98860 33021</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-outline">Joined: Sep 2023</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Morning Shift</span>
+<span class="font-body-sm text-body-sm text-primary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                        Checked in 06:10 AM
+                      </span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-on-surface-variant">06:00 - 14:00</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Zone A: Downtown Central</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">PIN: 560001 • Hub #04</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-primary">Cold Bag #CC-82</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md font-semibold w-max">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+                        On Delivery #FG-9855
+                      </span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-on-surface-variant">2.8 km away • ETA 11 min</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 font-label-lg text-label-lg font-semibold text-on-surface">
+<span class="font-metric-mono-md text-metric-mono-md text-primary">21 drops</span>
+<span class="text-outline">/</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-tertiary">★ 4.9</span>
+</div>
+<span class="font-metric-mono-sm text-metric-mono-sm text-primary font-medium">98.5% Punctuality SLA</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container font-metric-mono-sm text-metric-mono-sm text-primary font-semibold w-max">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                        Verified
+                      </span>
+<span class="font-metric-mono-sm text-[10px] text-outline">DL • ID • Vehicle RC</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<button class="rider-action-btn w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer Pagination and Density Strip -->
+<div class="p-space-md bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-sm font-label-md text-label-md text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span>Rows per page:</span>
+<select class="bg-surface-container-lowest text-on-surface px-2 py-1 rounded border-none font-metric-mono-sm text-metric-mono-sm focus:outline-none shadow-sm">
+<option>10</option>
+<option>25</option>
+<option>50</option>
+</select>
+<span>1-6 of 64 riders</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface disabled:opacity-40" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-primary text-on-primary font-metric-mono-sm text-metric-mono-sm font-semibold flex items-center justify-center">1</button>
+<button class="w-8 h-8 rounded bg-surface-container hover:bg-surface-container-high font-metric-mono-sm text-metric-mono-sm text-on-surface flex items-center justify-center">2</button>
+<button class="w-8 h-8 rounded bg-surface-container hover:bg-surface-container-high font-metric-mono-sm text-metric-mono-sm text-on-surface flex items-center justify-center">3</button>
+<button class="w-8 h-8 rounded bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Live Rider Capacity & Delivery Zone Coverage (Sidebar Module) -->
+<div class="xl:col-span-1 flex flex-col gap-space-md">
+<!-- Live Capacity Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">map</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Zone Fleet Capacity</h2>
+</div>
+<span class="font-metric-mono-sm text-metric-mono-sm bg-surface-container px-2 py-0.5 rounded text-on-surface font-semibold">Live Telemetry</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Real-time rider allotment and cold-storage order load balancing per geographical delivery perimeter.</p>
+<!-- Zone Items -->
+<div class="space-y-space-md">
+<!-- Zone A -->
+<div class="p-space-sm bg-surface-container-low rounded-lg flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Zone A: Downtown Central</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-on-surface-variant">PIN 560001 • 14 Riders Active</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-metric-mono-sm text-metric-mono-sm font-semibold">
+                  Optimal
+                </span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 82%;"></div>
+</div>
+<div class="flex justify-between items-center font-metric-mono-sm text-metric-mono-sm text-on-surface-variant">
+<span>Active Demand: 92%</span>
+<span>Avg SLA: 18.2m</span>
+</div>
+</div>
+<!-- Zone B -->
+<div class="p-space-sm bg-surface-container-low rounded-lg flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Zone B: Tech Park Corridor</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-on-surface-variant">PIN 560103 • 8 Riders Active</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-metric-mono-sm text-metric-mono-sm font-bold">
+                  High Load
+                </span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 98%;"></div>
+</div>
+<div class="flex justify-between items-center font-metric-mono-sm text-metric-mono-sm text-error">
+<span>Orders Surging (+24%)</span>
+<span>Backlog: 12 orders</span>
+</div>
+</div>
+<!-- Zone C -->
+<div class="p-space-sm bg-surface-container-low rounded-lg flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Zone C: Green Park &amp; Indiranagar</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-on-surface-variant">PIN 560038 • 10 Riders Active</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-metric-mono-sm text-metric-mono-sm font-semibold">
+                  Optimal
+                </span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 65%;"></div>
+</div>
+<div class="flex justify-between items-center font-metric-mono-sm text-metric-mono-sm text-on-surface-variant">
+<span>Active Demand: 68%</span>
+<span>Avg SLA: 21.0m</span>
+</div>
+</div>
+<!-- Zone D -->
+<div class="p-space-sm bg-surface-container-low rounded-lg flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Zone D: South Ring Suburbs</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-on-surface-variant">PIN 560076 • 6 Riders Active</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-metric-mono-sm text-metric-mono-sm font-bold">
+                  Needs 2 Riders
+                </span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 88%;"></div>
+</div>
+<div class="flex justify-between items-center font-metric-mono-sm text-metric-mono-sm text-tertiary">
+<span>Buffer Depleted</span>
+<span>2 on lunch break</span>
+</div>
+</div>
+</div>
+<!-- Quick Action -->
+<button class="w-full flex items-center justify-center gap-space-xs bg-secondary hover:bg-secondary-container text-on-secondary px-space-md py-2.5 rounded-lg font-label-lg text-label-lg font-semibold transition-all shadow-sm" id="rebalanceBtn">
+<span class="material-symbols-outlined text-[18px]">sync_alt</span>
+<span>Rebalance Fleet Zones</span>
+</button>
+</div>
+<!-- Shift Attendance Pulse -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Attendance SLA Gauge</span>
+<span class="material-symbols-outlined text-primary text-[18px]">schedule</span>
+</div>
+<!-- Micro SVG Visualizer for Shifts -->
+<div class="flex items-center gap-space-md py-2">
+<svg class="w-20 h-20 -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="4"></path>
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="98, 100" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+<div class="flex flex-col">
+<span class="font-metric-mono-lg text-headline-lg text-on-surface font-bold leading-none">98.2%</span>
+<span class="font-label-md text-label-md text-on-surface-variant mt-1">Shift Start Adherence</span>
+<span class="font-metric-mono-sm text-metric-mono-sm text-primary font-medium mt-0.5">47/48 on-time punch-ins</span>
+</div>
+</div>
+<div class="p-space-xs bg-surface-container-low rounded font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[16px]">verified_user</span>
+<span>Zero biometric sync discrepancies detected today.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Operational Contextual Action Dropdown (Floating Template) -->
+<div class="fixed hidden bg-surface-container-lowest rounded-xl shadow-xl p-1.5 w-56 z-50 transition-opacity" id="actionMenu">
+<div class="px-3 py-1.5 text-on-surface-variant font-label-md text-label-md uppercase tracking-wider font-bold">Rider Actions</div>
+<button class="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-on-surface hover:bg-surface-container-high font-label-lg text-label-lg text-left transition-colors">
+<span class="material-symbols-outlined text-[18px] text-primary">add_task</span>
+<span>Assign Orders</span>
+</button>
+<button class="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-on-surface hover:bg-surface-container-high font-label-lg text-label-lg text-left transition-colors">
+<span class="material-symbols-outlined text-[18px] text-secondary">update</span>
+<span>Reassign Shift</span>
+</button>
+<button class="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-on-surface hover:bg-surface-container-high font-label-lg text-label-lg text-left transition-colors">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">near_me</span>
+<span>View Live Route</span>
+</button>
+<button class="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-on-surface hover:bg-surface-container-high font-label-lg text-label-lg text-left transition-colors">
+<span class="material-symbols-outlined text-[18px] text-tertiary">phone_in_talk</span>
+<span>Emergency Contact</span>
+</button>
+<div class="my-1 border-t border-surface-container-high"></div>
+<button class="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-error hover:bg-error-container font-label-lg text-label-lg text-left transition-colors">
+<span class="material-symbols-outlined text-[18px]">person_off</span>
+<span>Suspend / Deactivate</span>
+</button>
+</div>
+<!-- Modal: Register New Rider Employee -->
+<div class="fixed inset-0 z-50 hidden bg-inverse-surface/40 backdrop-blur-sm flex items-center justify-center p-4" id="registerModal">
+<div class="bg-surface-container-lowest rounded-xl shadow-2xl max-w-lg w-full p-space-lg flex flex-col gap-space-md animate-in fade-in zoom-in-95 duration-150">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[24px]">badge</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Register Rider Employee</h2>
+</div>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface" id="closeRegisterModal">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Add a delivery associate into the active cold-chain fulfillment operations roster. Payroll and bank verification are managed separately in Finance.
+      </p>
+<form class="flex flex-col gap-space-sm" id="newRiderForm" onsubmit="event.preventDefault(); handleNewRiderSubmit();">
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold uppercase">Full Legal Name</label>
+<input class="bg-surface-container-low px-space-sm py-2 rounded-lg font-body-sm text-body-sm text-on-surface focus:outline-none focus:ring-1 focus:ring-primary" placeholder="e.g. Rahul Sen" required="" type="text"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold uppercase">Mobile Number</label>
+<input class="bg-surface-container-low px-space-sm py-2 rounded-lg font-body-sm text-body-sm text-on-surface focus:outline-none focus:ring-1 focus:ring-primary" placeholder="+91 90000 00000" required="" type="tel"/>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold uppercase">Assigned Shift</label>
+<select class="bg-surface-container-low px-space-sm py-2 rounded-lg font-body-sm text-body-sm text-on-surface focus:outline-none focus:ring-1 focus:ring-primary">
+<option>Morning (06:00 - 14:00)</option>
+<option>Evening (14:00 - 22:00)</option>
+<option>Full Day Flex</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold uppercase">Operational Zone</label>
+<select class="bg-surface-container-low px-space-sm py-2 rounded-lg font-body-sm text-body-sm text-on-surface focus:outline-none focus:ring-1 focus:ring-primary">
+<option>Zone A: Downtown Central</option>
+<option>Zone B: Tech Park Corridor</option>
+<option>Zone C: Green Park</option>
+<option>Zone D: South Ring Suburbs</option>
+</select>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold uppercase">Mandatory Operational Docs</label>
+<div class="grid grid-cols-3 gap-2">
+<label class="flex items-center gap-1.5 p-2 bg-surface-container-low rounded-lg text-body-sm cursor-pointer hover:bg-surface-container">
+<input checked="" class="accent-primary rounded" type="checkbox"/>
+<span class="font-label-md text-label-md">Driving Lic.</span>
+</label>
+<label class="flex items-center gap-1.5 p-2 bg-surface-container-low rounded-lg text-body-sm cursor-pointer hover:bg-surface-container">
+<input checked="" class="accent-primary rounded" type="checkbox"/>
+<span class="font-label-md text-label-md">Govt ID / UID</span>
+</label>
+<label class="flex items-center gap-1.5 p-2 bg-surface-container-low rounded-lg text-body-sm cursor-pointer hover:bg-surface-container">
+<input checked="" class="accent-primary rounded" type="checkbox"/>
+<span class="font-label-md text-label-md">Vehicle RC</span>
+</label>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-sm">
+<button class="px-space-md py-2 rounded-lg font-label-lg text-label-lg bg-surface-container hover:bg-surface-container-high text-on-surface" id="cancelRegisterModal" type="button">
+            Cancel
+          </button>
+<button class="px-space-md py-2 rounded-lg font-label-lg text-label-lg bg-primary hover:bg-primary-container text-on-primary font-semibold shadow-sm" type="submit">
+            Complete Registration
+          </button>
+</div>
+</form>
+</div>
+</div>
+<!-- Rebalance Toast Notification -->
+<div class="fixed bottom-6 right-6 hidden bg-surface-container-lowest rounded-xl shadow-xl p-space-md max-w-sm z-50 flex items-center gap-space-sm border-l-4 border-primary" id="toastNotification">
+<span class="material-symbols-outlined text-primary text-[24px]">alt_route</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Fleet Zones Rebalanced</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">2 riders shifted from Zone A to Zone B backlog.</span>
+</div>
+</div>
+</div>
+<script>
+  // Filter and Interactive Logic
+  (function initRiderFleetDashboard() {
+    const searchInput = document.getElementById('riderSearchInput');
+    const shiftButtons = document.querySelectorAll('.shift-filter-btn');
+    const statusButtons = document.querySelectorAll('.status-pill-btn');
+    const rows = document.querySelectorAll('.rider-row');
+    const countDisplay = document.getElementById('filteredRidersCount');
+
+    let currentShift = 'all';
+    let currentStatus = 'all';
+    let searchQuery = '';
+
+    function applyFilters() {
+      let visibleCount = 0;
+      rows.forEach(row => {
+        const rowShift = row.getAttribute('data-shift');
+        const rowStatus = row.getAttribute('data-status');
+        const rowSearch = (row.getAttribute('data-search') || '').toLowerCase();
+
+        const matchesShift = (currentShift === 'all' || rowShift === currentShift);
+        const matchesStatus = (currentStatus === 'all' || rowStatus === currentStatus);
+        const matchesSearch = (!searchQuery || rowSearch.includes(searchQuery));
+
+        if (matchesShift && matchesStatus && matchesSearch) {
+          row.style.display = '';
+          visibleCount++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+      if (countDisplay) {
+        countDisplay.textContent = visibleCount;
+      }
+    }
+
+    // Search event
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value.trim().toLowerCase();
+        applyFilters();
+      });
+    }
+
+    // Shift filters
+    shiftButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        shiftButtons.forEach(b => {
+          b.classList.remove('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+          b.classList.add('text-on-surface-variant');
+        });
+        btn.classList.add('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+        btn.classList.remove('text-on-surface-variant');
+        currentShift = btn.getAttribute('data-shift') || 'all';
+        applyFilters();
+      });
+    });
+
+    // Status pill filters
+    statusButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        statusButtons.forEach(b => {
+          b.classList.remove('bg-primary-fixed', 'text-on-primary-fixed', 'font-semibold');
+          b.classList.add('font-medium');
+        });
+        btn.classList.add('bg-primary-fixed', 'text-on-primary-fixed', 'font-semibold');
+        currentStatus = btn.getAttribute('data-status') || 'all';
+        applyFilters();
+      });
+    });
+
+    // Action Dropdown positioning
+    const actionMenu = document.getElementById('actionMenu');
+    const actionBtns = document.querySelectorAll('.rider-action-btn');
+
+    actionBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const rect = btn.getBoundingClientRect();
+        actionMenu.style.top = `${rect.bottom + 6}px`;
+        actionMenu.style.left = `${Math.min(window.innerWidth - 240, rect.left - 180)}px`;
+        actionMenu.classList.toggle('hidden');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (actionMenu && !actionMenu.contains(e.target)) {
+        actionMenu.classList.add('hidden');
+      }
+    });
+
+    // Modal Handlers
+    const registerModal = document.getElementById('registerModal');
+    const openBtn = document.getElementById('openRegisterModal');
+    const closeBtn = document.getElementById('closeRegisterModal');
+    const cancelBtn = document.getElementById('cancelRegisterModal');
+
+    function toggleModal(show) {
+      if (registerModal) {
+        if (show) {
+          registerModal.classList.remove('hidden');
+        } else {
+          registerModal.classList.add('hidden');
+        }
+      }
+    }
+
+    if (openBtn) openBtn.addEventListener('click', () => toggleModal(true));
+    if (closeBtn) closeBtn.addEventListener('click', () => toggleModal(false));
+    if (cancelBtn) cancelBtn.addEventListener('click', () => toggleModal(false));
+
+    // Zone Rebalance Button Toast Interaction
+    const rebalanceBtn = document.getElementById('rebalanceBtn');
+    const toast = document.getElementById('toastNotification');
+    if (rebalanceBtn && toast) {
+      rebalanceBtn.addEventListener('click', () => {
+        toast.classList.remove('hidden');
+        setTimeout(() => {
+          toast.classList.add('hidden');
+        }, 3600);
+      });
+    }
+
+    // Export Attendance dummy feedback
+    const exportBtn = document.getElementById('exportAttendanceBtn');
+    if (exportBtn) {
+      exportBtn.addEventListener('click', () => {
+        const origText = exportBtn.innerHTML;
+        exportBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span><span>Generating CSV...</span>';
+        setTimeout(() => {
+          exportBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] text-primary">check</span><span>Downloaded Roster</span>';
+          setTimeout(() => {
+            exportBtn.innerHTML = origText;
+          }, 2000);
+        }, 800);
+      });
+    }
+  })();
+
+  function handleNewRiderSubmit() {
+    const modal = document.getElementById('registerModal');
+    if (modal) modal.classList.add('hidden');
+    const toast = document.getElementById('toastNotification');
+    if (toast) {
+      toast.querySelector('.font-label-lg').textContent = 'Rider Registered';
+      toast.querySelector('.font-body-sm').textContent = 'New associate profile is now in Verification Queue.';
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3500);
+    }
+  }
+</script></main></div></body></html>

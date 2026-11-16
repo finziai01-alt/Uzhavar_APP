@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"tertiary-fixed-dim":"#ffb95f","surface-container-low":"#f2f3ff","outline":"#6d7a72","on-secondary-fixed-variant":"#003ea8","secondary-fixed":"#dbe1ff","outline-variant":"#bccac0","on-primary-fixed-variant":"#005137","surface-variant":"#dae2fd","on-tertiary-container":"#fffbff","background":"#faf8ff","on-secondary-container":"#fefcff","surface-tint":"#006c4a","error":"#ba1a1a","error-container":"#ffdad6","on-surface-variant":"#3d4a42","secondary":"#0051d5","on-secondary-fixed":"#00174b","on-background":"#131b2e","secondary-fixed-dim":"#b4c5ff","surface-container-lowest":"#ffffff","on-tertiary":"#ffffff","primary-fixed-dim":"#68dba9","secondary-container":"#316bf3","on-primary":"#ffffff","inverse-surface":"#283044","surface-container-high":"#e2e7ff","inverse-on-surface":"#eef0ff","on-error-container":"#93000a","on-tertiary-fixed":"#2a1700","surface-container":"#eaedff","surface-container-highest":"#dae2fd","tertiary":"#825100","primary":"#006948","on-tertiary-fixed-variant":"#653e00","primary-fixed":"#85f8c4","primary-container":"#00855d","on-primary-container":"#f5fff7","on-primary-fixed":"#002114","surface-bright":"#faf8ff","on-error":"#ffffff","surface":"#faf8ff","on-secondary":"#ffffff","inverse-primary":"#68dba9","tertiary-fixed":"#ffddb8","tertiary-container":"#a36700","on-surface":"#131b2e","surface-dim":"#d2d9f4"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"1.25rem","space-xl":"1.75rem","space-xs":"0.25rem","margin-md":"1.5rem","space-md":"0.75rem","margin":"1rem","margin-lg":"2rem","gutter":"1rem","space-sm":"0.5rem","gutter-lg":"1.5rem"},"fontFamily":{"metric-mono-md":["JetBrains Mono"],"headline-md":["Plus Jakarta Sans"],"body-lg":["Inter"],"headline-lg":["Plus Jakarta Sans"],"metric-mono-lg":["JetBrains Mono"],"body-sm":["Inter"],"label-md":["Inter"],"headline-sm":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"body-md":["Inter"],"metric-mono-sm":["JetBrains Mono"],"display-lg-mobile":["Plus Jakarta Sans"],"label-lg":["Inter"]},"fontSize":{"metric-mono-md":["13px",{"lineHeight":"16px","fontWeight":"500"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["15px",{"lineHeight":"22px","fontWeight":"400"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"metric-mono-lg":["20px",{"lineHeight":"24px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"label-md":["11px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}],"display-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"metric-mono-sm":["11px",{"lineHeight":"14px","fontWeight":"500"}],"display-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"700"}],"label-lg":["13px",{"lineHeight":"18px","fontWeight":"500"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest z-50 flex flex-col shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-space-md flex items-center justify-between bg-surface-container-lowest"><div class="flex items-center gap-space-sm"><img alt="FreshGrocer Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD8FEejqPdAMP2LXwW_xZ8LQrjgwA7JPvtTTOlPhezIoZEvG4EAblQeKdt-qFO5hyA-dHJ23nY7CjQG5MjXZ7WjN3Wid98V-1e61EPORvUxIttiK2_We-DnPtQgKsjYJUQSbv6fdiQ1qI9J1J1e9rjhlW6glLXiElovSL3lVIHVTLPaW7TOg3u3kAQnDKkmk-mdNQa4lh3eSZ68Zrf9_pjfzehuf1rarDAPVB9KRG0"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">FreshGrocer</span><span class="font-label-md text-label-md text-primary uppercase font-bold tracking-wider">Ops Core</span></div></div><span class="font-metric-mono-sm text-metric-mono-sm bg-surface-container text-on-surface px-space-xs py-0.5 rounded">v2.4</span></div><nav class="flex-1 overflow-y-auto px-space-sm py-space-sm space-y-space-md" data-active-classes="bg-primary text-on-primary font-semibold"><div class="space-y-space-xs"><p class="px-space-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Main</p><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[18px]">analytics</span><span class="font-label-lg text-label-lg">Dashboard &amp; Analytics</span></a></div><div class="space-y-space-xs"><p class="px-space-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Catalog</p><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg transition-all bg-primary text-on-primary font-semibold" data-path="products" href="#"><span class="material-symbols-outlined text-[18px]">nutrition</span><span class="font-label-lg text-label-lg">Product &amp; Categories</span></a></div><div class="space-y-space-xs"><p class="px-space-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Fulfillment</p><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="orders" href="#"><span class="material-symbols-outlined text-[18px]">local_shipping</span><span class="font-label-lg text-label-lg">Orders &amp; Dispatch</span><span class="ml-auto font-metric-mono-sm text-metric-mono-sm bg-primary-fixed-dim text-on-primary-fixed-variant px-space-xs rounded-full">24</span></a></div><div class="space-y-space-xs"><p class="px-space-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Inventory</p><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="inventory" href="#"><span class="material-symbols-outlined text-[18px]">warehouse</span><span class="font-label-lg text-label-lg">Stock &amp; Wastage</span></a></div><div class="space-y-space-xs"><p class="px-space-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Logistics</p><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="riders" href="#"><span class="material-symbols-outlined text-[18px]">two_wheeler</span><span class="font-label-lg text-label-lg">Rider Fleet &amp; Shifts</span></a></div><div class="space-y-space-xs"><p class="px-space-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Customers</p><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="customers" href="#"><span class="material-symbols-outlined text-[18px]">group</span><span class="font-label-lg text-label-lg">Customer Directory</span></a></div><div class="space-y-space-xs"><p class="px-space-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Marketing</p><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="marketing" href="#"><span class="material-symbols-outlined text-[18px]">campaign</span><span class="font-label-lg text-label-lg">Promotions &amp; Banners</span></a></div><div class="space-y-space-xs"><p class="px-space-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Finance</p><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="finance" href="#"><span class="material-symbols-outlined text-[18px]">account_balance_wallet</span><span class="font-label-lg text-label-lg">Payments &amp; P&amp;L</span></a></div><div class="space-y-space-xs"><p class="px-space-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">System</p><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span class="font-label-lg text-label-lg">Store &amp; Admin Settings</span></a></div></nav><div class="p-space-sm bg-surface-container-low"><div class="p-space-sm bg-surface-container-lowest rounded-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)] flex items-center justify-between"><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface-variant">Cold Chain Node</span><span class="font-metric-mono-sm text-metric-mono-sm text-on-surface font-semibold">CC-TEMP: 3.4°C</span></div><span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="w-full h-full px-gutter-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md flex-1 max-w-2xl"><div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-1.5 rounded-lg text-on-surface cursor-pointer hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-primary text-[18px]">hub</span><span class="font-label-md text-label-md font-semibold truncate">Metro Hub #04 - South Central</span><span class="material-symbols-outlined text-on-surface-variant text-[16px]">arrow_drop_down</span></div><div class="hidden xl:flex items-center gap-space-xs bg-primary-container px-space-sm py-1 rounded-full text-on-primary-container"><span class="w-2 h-2 rounded-full bg-primary-fixed"></span><span class="font-label-md text-label-md font-medium tracking-tight">System Healthy • 99.8% On-Time</span></div><div class="relative flex-1"><span class="material-symbols-outlined absolute left-space-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span><input class="w-full bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm pl-9 pr-space-sm py-1.5 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary transition-all" placeholder="Search vegetable SKU, order ID, rider, or phone..." type="text"/></div></div><div class="flex items-center gap-space-md"><button class="flex items-center gap-space-xs bg-primary hover:bg-primary-container text-on-primary px-space-sm py-1.5 rounded-lg font-label-lg text-label-lg transition-colors shadow-[0_1px_3px_rgba(0,0,0,0.04)]"><span class="material-symbols-outlined text-[18px]">add</span><span>Quick Add</span></button><div class="relative cursor-pointer"><button class="w-9 h-9 rounded-lg bg-surface-container-low hover:bg-surface-container flex items-center justify-center text-on-surface-variant transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span></button><span class="absolute -top-1 -right-1 w-4 h-4 bg-error text-on-error font-metric-mono-sm text-[10px] rounded-full flex items-center justify-center font-bold">3</span></div><div class="flex items-center gap-space-sm pl-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrItocZTeFiGGpxFYcqNQMXX41ZJCexuR7nh8reshfVUH6ktNM_QFR15XocJ7GsNqOGJ9QSI30cIT-qA5drjm9oNgZr2WhWGzfS0IW62xqppvjPaUTpFwKgV6ESM25_mPSHZVkm8iHcFvBV87iceZ48zsz9UW-deorKG2J0yLttOVI6G5rY7OJiKkgR6mTvFo9Qtn2DkHO_g3Zxk0AOShdOmVFOaf00-YUWXKsUb8g"/><div class="flex flex-col text-left"><span class="font-label-lg text-label-lg text-on-surface leading-none font-semibold">Marcus Vance</span><span class="font-label-md text-label-md text-primary font-medium mt-0.5">Ops Lead</span></div></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Top Operational Control Bar -->
+<div class="px-gutter-lg pt-space-lg pb-space-md flex flex-col md:flex-row md:items-end justify-between gap-space-md bg-surface-container-lowest shadow-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs text-primary font-label-md text-label-md uppercase tracking-wider">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>Procurement &amp; SKU Inventory Node</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mt-0.5 tracking-tight">Vegetable Catalog &amp; Variants</h1>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-space-xs mt-0.5">
+<span class="font-metric-mono-md text-metric-mono-md text-primary font-semibold">148 Active Items</span>
+<span>•</span>
+<span>12 Agricultural Categories</span>
+<span>•</span>
+<span class="text-tertiary font-medium">Re-evaluated 4m ago</span>
+</p>
+</div>
+<!-- Global Catalog Action Buttons -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="flex items-center gap-space-xs bg-surface-container hover:bg-surface-container-high text-on-surface px-space-md py-2 rounded-lg font-label-lg text-label-lg transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px]">currency_exchange</span>
+<span>Bulk Price Update</span>
+</button>
+<button class="flex items-center gap-space-xs bg-surface-container hover:bg-surface-container-high text-on-surface px-space-md py-2 rounded-lg font-label-lg text-label-lg transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+<span>Export CSV</span>
+</button>
+<button class="flex items-center gap-space-xs bg-primary hover:bg-primary-container text-on-primary px-space-md py-2 rounded-lg font-label-lg text-label-lg transition-all shadow-sm" id="open-drawer-btn">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>+ Add New Vegetable</span>
+</button>
+</div>
+</div>
+<!-- Main Canvas: Two-Pane Split Layout (Catalog Table + Drawer Workspace) -->
+<div class="px-gutter-lg py-space-lg flex gap-gutter-lg relative items-start">
+<!-- Left Workspace: Filters & Data Grid -->
+<div class="flex-1 flex flex-col gap-space-md min-w-0">
+<!-- Filter Toolbar Section -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-md">
+<!-- Search and Primary Filters -->
+<div class="flex flex-col lg:flex-row gap-space-md items-stretch lg:items-center justify-between">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm pl-10 pr-space-md py-2 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary transition-all" placeholder="Search by vegetable name, SKU, barcode, cold-chain batch..." type="text"/>
+</div>
+<!-- Stock Status Pills -->
+<div class="flex items-center gap-1.5 p-1 bg-surface-container-low rounded-lg shrink-0">
+<button class="px-space-sm py-1 rounded-md text-label-md font-label-md bg-surface-container-lowest text-primary font-semibold shadow-sm">In Stock (132)</button>
+<button class="px-space-sm py-1 rounded-md text-label-md font-label-md text-on-surface-variant hover:text-on-surface">Low Stock (11)</button>
+<button class="px-space-sm py-1 rounded-md text-label-md font-label-md text-on-surface-variant hover:text-on-surface">Out of Stock (5)</button>
+</div>
+<!-- Unit Dropdown Toggle Filter -->
+<div class="flex items-center gap-space-xs shrink-0">
+<div class="bg-surface-container-low px-space-md py-1.5 rounded-lg flex items-center gap-space-xs cursor-pointer hover:bg-surface-container">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">scale</span>
+<span class="font-label-md text-label-md text-on-surface">Unit: All Units</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Category Filter Badges -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-0.5">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mr-1 shrink-0">Categories:</span>
+<button class="px-space-md py-1 rounded-full font-label-md text-label-md bg-primary text-on-primary font-semibold shrink-0 shadow-sm">All (148)</button>
+<button class="px-space-md py-1 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface hover:bg-surface-container shrink-0 transition-colors">Leafy Greens (24)</button>
+<button class="px-space-md py-1 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface hover:bg-surface-container shrink-0 transition-colors">Root Vegetables (18)</button>
+<button class="px-space-md py-1 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface hover:bg-surface-container shrink-0 transition-colors">Gourds &amp; Squashes (16)</button>
+<button class="px-space-md py-1 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface hover:bg-surface-container shrink-0 transition-colors">Exotic &amp; Organic (32)</button>
+<button class="px-space-md py-1 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface hover:bg-surface-container shrink-0 transition-colors">Herbs &amp; Seasoning (21)</button>
+</div>
+</div>
+<!-- Data Table Card Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-md text-label-md uppercase tracking-wider">
+<th class="py-space-md px-space-md w-12 text-center">
+<input class="rounded text-primary focus:ring-primary w-4 h-4 cursor-pointer" type="checkbox"/>
+</th>
+<th class="py-space-md px-space-md">Vegetable Product</th>
+<th class="py-space-md px-space-md">Packaging &amp; Units</th>
+<th class="py-space-md px-space-md">Cost / Sell / Margin</th>
+<th class="py-space-md px-space-md">Stock Level</th>
+<th class="py-space-md px-space-md">Limits (Min-Max)</th>
+<th class="py-space-md px-space-md text-center">App Feat.</th>
+<th class="py-space-md px-space-md">Status</th>
+<th class="py-space-md px-space-md text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-none text-on-surface">
+<!-- Row 1: Active In-Stock (Spinach) -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group cursor-pointer">
+<td class="py-space-sm px-space-md text-center">
+<input class="rounded text-primary focus:ring-primary w-4 h-4 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<img class="w-11 h-11 rounded-lg object-cover bg-surface-container shrink-0 shadow-sm" data-alt="Close up photography of fresh crisp dark-green organic spinach leaves inside a sterile cold chain fulfillment depot, cinematic sunbeam lighting, 8k crisp details, commercial catalog style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5qlMQaLeuZyH7Lbv2ZgkGEhyZ2_pQ5VqKJA5ziuMQU0RvpZ81Azic9GGenEc_tygSlTHOxtMxEXfGsHhSBpAVEK2BOUSJsZHgoLVYHfT20PvR_qapRUsl-BANZ2U_Mry3N8SWq9LuAZpwUkRTBP7ecPhAYhL4OW7BGV3_4kFWPiaOdWemRzIbmGr-uvSvGQBmg9GsfsfJwnvyz7m1Q6ryFW0Icabyr_uy80lrVdOu"/>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm truncate text-on-surface font-semibold">Fresh Organic Spinach (Palak)</span>
+<div class="flex items-center gap-space-xs mt-0.5">
+<span class="font-metric-mono-sm text-metric-mono-sm bg-surface-container px-1 rounded text-on-surface-variant">VEG-SPN-001</span>
+<span class="font-label-md text-label-md text-primary font-medium">Leafy Greens</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Bunch / 250g</span>
+<span class="text-on-surface-variant text-[11px]">Poly-vented Sleeve</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 font-metric-mono-sm text-metric-mono-sm">
+<span class="text-on-surface-variant">$0.80</span>
+<span class="text-outline">→</span>
+<span class="font-bold text-on-surface">$1.40</span>
+</div>
+<span class="inline-flex items-center text-[10px] font-metric-mono-sm text-on-primary-fixed-variant bg-primary-fixed w-fit px-1 rounded mt-0.5 font-bold">+42.8%</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col w-32">
+<div class="flex justify-between items-center font-metric-mono-sm text-metric-mono-sm mb-1">
+<span class="font-semibold text-on-surface">245 Kg</span>
+<span class="text-primary font-bold">82%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 82%;"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md font-metric-mono-sm text-metric-mono-sm text-on-surface-variant">
+<span>250g • 5 Kg</span>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<div class="w-8 h-4 bg-primary rounded-full relative inline-flex items-center p-0.5 cursor-pointer">
+<div class="w-3 h-3 bg-on-primary rounded-full translate-x-4 transition-transform"></div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-primary-fixed-dim text-on-primary-fixed-variant font-label-md text-label-md font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                    Active
+                  </span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 hover:bg-surface-container rounded-lg text-on-surface-variant hover:text-primary transition-colors" title="Quick Edit">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container rounded-lg text-on-surface-variant hover:text-secondary transition-colors" title="Restock">
+<span class="material-symbols-outlined text-[18px]">inventory_2</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container rounded-lg text-on-surface-variant" title="Menu">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Selected Item (Cherry Tomatoes - Connected to Drawer) -->
+<tr class="bg-primary/5 transition-colors group cursor-pointer shadow-sm">
+<td class="py-space-sm px-space-md text-center">
+<input checked="" class="rounded text-primary focus:ring-primary w-4 h-4 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<img class="w-11 h-11 rounded-lg object-cover bg-surface-container shrink-0 shadow-sm" data-alt="Vibrant red heirloom cherry tomatoes still on the vine with water droplets, pristine white background studio product lighting, macro commercial photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-lPHwck5LCco4tUapTDrlpE0Cr3ZATWk7ux9iOwMj19fpzQkJxm-OvHoJSfn37oMeQhidnZEvwQuahvskXFktvNq96dCuXhnkHhbAY1vIxvfPpkhvqpuzOJ3B3hIH6RDKgLZOWtgecAuhvdtW8fxFjC646momW0cKzj0lzt6Du89fpUpqRr91Y2JxhGKonCqxlQ4DZJoyDM8s0BcErnfqck9WPEsC_Y7Uh2LlRQQ0"/>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm truncate text-on-surface font-semibold flex items-center gap-1">
+                        Cherry Tomatoes (Hydroponic)
+                        <span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+<div class="flex items-center gap-space-xs mt-0.5">
+<span class="font-metric-mono-sm text-metric-mono-sm bg-surface-container px-1 rounded text-on-surface-variant">VEG-TOM-084</span>
+<span class="font-label-md text-label-md text-tertiary font-medium">Exotic &amp; Organic</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">500g Clamshell</span>
+<span class="text-on-surface-variant text-[11px]">Recycled PET Punnet</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 font-metric-mono-sm text-metric-mono-sm">
+<span class="text-on-surface-variant">$1.20</span>
+<span class="text-outline">→</span>
+<span class="font-bold text-on-surface">$2.40</span>
+</div>
+<span class="inline-flex items-center text-[10px] font-metric-mono-sm text-on-primary-fixed-variant bg-primary-fixed w-fit px-1 rounded mt-0.5 font-bold">+50.0%</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col w-32">
+<div class="flex justify-between items-center font-metric-mono-sm text-metric-mono-sm mb-1">
+<span class="font-semibold text-on-surface">140 Kg</span>
+<span class="text-primary font-bold">58%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 58%;"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md font-metric-mono-sm text-metric-mono-sm text-on-surface-variant">
+<span>500g • 10 Kg</span>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<div class="w-8 h-4 bg-primary rounded-full relative inline-flex items-center p-0.5 cursor-pointer">
+<div class="w-3 h-3 bg-on-primary rounded-full translate-x-4 transition-transform"></div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-primary-fixed-dim text-on-primary-fixed-variant font-label-md text-label-md font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                    Active
+                  </span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 bg-primary text-on-primary rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container rounded-lg text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Low Stock Warning (Baby Carrots) -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group cursor-pointer">
+<td class="py-space-sm px-space-md text-center">
+<input class="rounded text-primary focus:ring-primary w-4 h-4 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<img class="w-11 h-11 rounded-lg object-cover bg-surface-container shrink-0 shadow-sm" data-alt="Pristine washed orange organic baby carrots neatly arranged, top down photography on polished stone, high contrast studio commercial lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo_8dg2c0cjIfU2pNY6ohMcbr-NtqQXHrJ4fTBCHiMBM_Q_ae4F_2ffRF15hUUCgI4PBIIwwHluxpLTsRMnr5lquAr1ab7ZpdzAjsKTUpzNwCziTZ2eclBKgdIJUWfHkOzkjL3pTFOaWa7NMd4PTWaU2N84dbTKOS2kXPSEfaki-wbuBmkWEfUyv_lP2Kghft3wa8bQnv6s2NTcKLlLH0QJB0Q2SzJFovzDtzPCTqw"/>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm truncate text-on-surface font-semibold">Tender Baby Carrots</span>
+<div class="flex items-center gap-space-xs mt-0.5">
+<span class="font-metric-mono-sm text-metric-mono-sm bg-surface-container px-1 rounded text-on-surface-variant">VEG-CAR-012</span>
+<span class="font-label-md text-label-md text-secondary font-medium">Root Vegetables</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">500g Biodegradable Bag</span>
+<span class="text-on-surface-variant text-[11px]">Sealed &amp; Nitrogen Flushed</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 font-metric-mono-sm text-metric-mono-sm">
+<span class="text-on-surface-variant">$1.10</span>
+<span class="text-outline">→</span>
+<span class="font-bold text-on-surface">$1.95</span>
+</div>
+<span class="inline-flex items-center text-[10px] font-metric-mono-sm text-on-primary-fixed-variant bg-primary-fixed w-fit px-1 rounded mt-0.5 font-bold">+43.5%</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col w-32">
+<div class="flex justify-between items-center font-metric-mono-sm text-metric-mono-sm mb-1">
+<span class="font-semibold text-tertiary">14 Kg</span>
+<span class="text-tertiary font-bold">12%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-fixed-dim rounded-full" style="width: 12%;"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md font-metric-mono-sm text-metric-mono-sm text-on-surface-variant">
+<span>500g • 4 Kg</span>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<div class="w-8 h-4 bg-primary rounded-full relative inline-flex items-center p-0.5 cursor-pointer">
+<div class="w-3 h-3 bg-on-primary rounded-full translate-x-4 transition-transform"></div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md text-label-md font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                    Low Stock
+                  </span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 hover:bg-surface-container rounded-lg text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container rounded-lg text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Japanese Cucumbers -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group cursor-pointer">
+<td class="py-space-sm px-space-md text-center">
+<input class="rounded text-primary focus:ring-primary w-4 h-4 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<img class="w-11 h-11 rounded-lg object-cover bg-surface-container shrink-0 shadow-sm" data-alt="Fresh Japanese English cucumbers neatly stacked in high-tech warehouse inventory, clean bright emerald green peel, cold mist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdMQSCUdzsuAkvo68OjEVq1ek85scFvMugfF168bSak0QF5Hc3SdMx5J44sx9EPFEZ08uc-csrjgYBBYEGjzM4Xf74wafMh8ibbD3gcGcb-l5vDB1h0t8JVnz9mweIBGpg4D8xjIL8LdQREk_cGzbkULN2sPWTdtoT6FTdnub4cisKiwnT1tbe8_BRLLRP4JNLXV74lEq86LeoZ_vFjzGeUMkj9espSwgE4FhMxShY"/>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm truncate text-on-surface font-semibold">Kyuri Seedless Cucumbers</span>
+<div class="flex items-center gap-space-xs mt-0.5">
+<span class="font-metric-mono-sm text-metric-mono-sm bg-surface-container px-1 rounded text-on-surface-variant">VEG-CUC-003</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Gourds &amp; Squashes</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">1 Kg Polybag</span>
+<span class="text-on-surface-variant text-[11px]">3-4 Pieces / Unit</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 font-metric-mono-sm text-metric-mono-sm">
+<span class="text-on-surface-variant">$1.40</span>
+<span class="text-outline">→</span>
+<span class="font-bold text-on-surface">$2.20</span>
+</div>
+<span class="inline-flex items-center text-[10px] font-metric-mono-sm text-on-primary-fixed-variant bg-primary-fixed w-fit px-1 rounded mt-0.5 font-bold">+36.4%</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col w-32">
+<div class="flex justify-between items-center font-metric-mono-sm text-metric-mono-sm mb-1">
+<span class="font-semibold text-on-surface">310 Kg</span>
+<span class="text-primary font-bold">94%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 94%;"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md font-metric-mono-sm text-metric-mono-sm text-on-surface-variant">
+<span>1 Kg • 12 Kg</span>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<div class="w-8 h-4 bg-primary rounded-full relative inline-flex items-center p-0.5 cursor-pointer">
+<div class="w-3 h-3 bg-on-primary rounded-full translate-x-4 transition-transform"></div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-primary-fixed-dim text-on-primary-fixed-variant font-label-md text-label-md font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                    Active
+                  </span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 hover:bg-surface-container rounded-lg text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container rounded-lg text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Disabled Product (Sweet Basil Leaves) -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group cursor-pointer opacity-75">
+<td class="py-space-sm px-space-md text-center">
+<input class="rounded text-primary focus:ring-primary w-4 h-4 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<img class="w-11 h-11 rounded-lg object-cover bg-surface-container shrink-0 grayscale" data-alt="Fresh Italian sweet basil leaves with delicate stems, clean lighting on minimal dark slate surface, cold chain packaging setup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDag7rrKD4WDN0GVx_8rqNQtR6IythMQ-bX8PK8LNQkeu2ahLeTdRpoYeOZQHViMucSLVRERWvbUSuhC7dvES1w4Kp8R231GT-0tc5A6kUEQpv8a_U7146gnIs9WzyI5S0lA-OPNGVG7yGNOuS8aiE2PRu-2IHN4PJSIRcYjnVg1SYbdpEbdq9W7hhg-ZkJy6S683tzQwjXVb6dGA7YdDOYeOAgjWN-dkYnkUFTLuZJ"/>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm truncate text-on-surface font-semibold">Italian Sweet Basil</span>
+<div class="flex items-center gap-space-xs mt-0.5">
+<span class="font-metric-mono-sm text-metric-mono-sm bg-surface-container px-1 rounded text-on-surface-variant">VEG-BSL-009</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Herbs &amp; Seasoning</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Per Bunch (100g)</span>
+<span class="text-on-surface-variant text-[11px]">Eco-Kraft Wrap</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 font-metric-mono-sm text-metric-mono-sm">
+<span class="text-on-surface-variant">$0.45</span>
+<span class="text-outline">→</span>
+<span class="font-bold text-on-surface">$1.10</span>
+</div>
+<span class="inline-flex items-center text-[10px] font-metric-mono-sm text-on-primary-fixed-variant bg-primary-fixed w-fit px-1 rounded mt-0.5 font-bold">+59.1%</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col w-32">
+<div class="flex justify-between items-center font-metric-mono-sm text-metric-mono-sm mb-1">
+<span class="font-semibold text-error">0 Kg</span>
+<span class="text-error font-bold">0%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 0%;"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md font-metric-mono-sm text-metric-mono-sm text-on-surface-variant">
+<span>100g • 2 Kg</span>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<div class="w-8 h-4 bg-surface-container-high rounded-full relative inline-flex items-center p-0.5 cursor-pointer">
+<div class="w-3 h-3 bg-outline rounded-full transition-transform"></div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-md text-label-md font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                    Disabled
+                  </span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 hover:bg-surface-container rounded-lg text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container rounded-lg text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Pagination Controls -->
+<div class="px-space-md py-space-sm bg-surface-container-low flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<div class="flex items-center gap-space-sm">
+<span>Showing <strong class="text-on-surface font-metric-mono-sm">1-5</strong> of <strong class="text-on-surface font-metric-mono-sm">148</strong> vegetables</span>
+<div class="flex items-center gap-1 ml-space-md">
+<span>Rows per page:</span>
+<select class="bg-surface-container-lowest text-on-surface rounded px-1.5 py-0.5 font-label-md text-label-md">
+<option>25</option>
+<option>50</option>
+<option>100</option>
+</select>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="p-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface disabled:opacity-50">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<span class="px-space-sm font-metric-mono-sm text-metric-mono-sm text-on-surface font-bold">1 / 6</span>
+<button class="p-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Slide-Over Quick-Edit Drawer / Modal Workspace -->
+<aside class="w-full lg:w-[460px] shrink-0 bg-surface-container-lowest rounded-xl shadow-lg flex flex-col self-stretch sticky top-20 overflow-hidden" id="editor-drawer">
+<!-- Drawer Header -->
+<div class="p-space-md bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1 text-primary font-label-md text-label-md uppercase tracking-wider font-bold">
+<span class="material-symbols-outlined text-[15px]">edit_note</span>
+<span>SKU Configuration Module</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate font-semibold">Add / Edit Vegetable: Cherry Tomatoes (Hydroponic)</h2>
+<span class="font-metric-mono-sm text-metric-mono-sm text-on-surface-variant">Last synced with cold store #04: 10:42 AM</span>
+</div>
+<button class="p-1.5 rounded-lg hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors shrink-0" id="close-drawer-btn">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Navigation Tabs -->
+<div class="flex items-center px-space-md bg-surface-container-lowest overflow-x-auto gap-space-sm shadow-sm">
+<button class="py-2.5 px-space-xs font-label-md text-label-md font-semibold text-primary border-b-2 border-primary shrink-0 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">info</span>
+          Basic Details
+        </button>
+<button class="py-2.5 px-space-xs font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface shrink-0 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">payments</span>
+          Pricing &amp; Units
+        </button>
+<button class="py-2.5 px-space-xs font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface shrink-0 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">rule</span>
+          Inventory Rules
+        </button>
+<button class="py-2.5 px-space-xs font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface shrink-0 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">photo_library</span>
+          Images (3)
+        </button>
+</div>
+<!-- Drawer Scrollable Form Content -->
+<div class="flex-1 overflow-y-auto p-space-md flex flex-col gap-space-md">
+<!-- Field 1: Name and Code -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant font-semibold">Vegetable Item Name</label>
+<input class="bg-surface-container-low text-on-surface font-body-md text-body-md px-3 py-2 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary" type="text" value="Cherry Tomatoes (Hydroponic)"/>
+</div>
+<!-- Field 2: Category and Subcategory -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant font-semibold">Category</label>
+<select class="bg-surface-container-low text-on-surface font-body-sm text-body-sm px-2.5 py-2 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer">
+<option selected="">Exotic &amp; Organic</option>
+<option>Leafy Greens</option>
+<option>Root Vegetables</option>
+<option>Gourds &amp; Squashes</option>
+<option>Herbs &amp; Seasoning</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant font-semibold">Unit Type</label>
+<div class="grid grid-cols-2 gap-1 bg-surface-container-low p-1 rounded-lg">
+<button class="font-label-md text-label-md bg-surface-container-lowest text-primary font-bold py-1 rounded shadow-sm">Kg / Gram</button>
+<button class="font-label-md text-label-md text-on-surface-variant py-1">Piece / Bunch</button>
+</div>
+</div>
+</div>
+<!-- Section: Pricing Structure -->
+<div class="p-space-sm bg-surface-container-low rounded-lg flex flex-col gap-space-sm">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary font-bold">Procurement &amp; Margin Engine</span>
+<div class="grid grid-cols-3 gap-space-xs">
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md text-on-surface-variant">Cost Price</span>
+<div class="relative">
+<span class="absolute left-2 top-1/2 -translate-y-1/2 text-on-surface-variant text-[12px] font-metric-mono-sm">$</span>
+<input class="w-full bg-surface-container-lowest text-on-surface font-metric-mono-sm text-metric-mono-sm pl-5 pr-2 py-1.5 rounded focus:outline-none focus:ring-1 focus:ring-primary" type="text" value="1.20"/>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md text-on-surface-variant">Selling Price</span>
+<div class="relative">
+<span class="absolute left-2 top-1/2 -translate-y-1/2 text-on-surface-variant text-[12px] font-metric-mono-sm">$</span>
+<input class="w-full bg-surface-container-lowest text-on-surface font-metric-mono-sm text-metric-mono-sm pl-5 pr-2 py-1.5 rounded focus:outline-none focus:ring-1 focus:ring-primary font-bold" type="text" value="2.40"/>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md text-on-surface-variant">App Promo ($)</span>
+<div class="relative">
+<span class="absolute left-2 top-1/2 -translate-y-1/2 text-on-surface-variant text-[12px] font-metric-mono-sm">$</span>
+<input class="w-full bg-surface-container-lowest text-tertiary font-metric-mono-sm text-metric-mono-sm pl-5 pr-2 py-1.5 rounded focus:outline-none focus:ring-1 focus:ring-primary font-bold" type="text" value="2.10"/>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-metric-mono-sm bg-surface-container px-2 py-1 rounded text-on-surface-variant">
+<span>Projected Gross Margin:</span>
+<span class="text-primary font-bold text-metric-mono-sm">+50.0% ($1.20/Kg)</span>
+</div>
+</div>
+<!-- Section: Inventory Safeguards & Limits -->
+<div class="grid grid-cols-3 gap-space-xs">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant">Min Order Qty</label>
+<input class="bg-surface-container-low text-on-surface font-metric-mono-sm text-metric-mono-sm px-2 py-1.5 rounded focus:outline-none focus:ring-1 focus:ring-primary" type="text" value="250g"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant">Current Stock</label>
+<input class="bg-surface-container-low text-on-surface font-metric-mono-sm text-metric-mono-sm px-2 py-1.5 rounded focus:outline-none focus:ring-1 focus:ring-primary font-semibold" type="text" value="140 Kg"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant">Reorder Trigger</label>
+<input class="bg-surface-container-low text-tertiary font-metric-mono-sm text-metric-mono-sm px-2 py-1.5 rounded focus:outline-none focus:ring-1 focus:ring-primary font-bold" type="text" value="30 Kg"/>
+</div>
+</div>
+<!-- Section: Uploaded Image Thumbnails Grid -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant font-semibold">Product Catalog Images (Web &amp; App)</label>
+<span class="font-label-md text-label-md text-primary font-bold cursor-pointer hover:underline">+ Upload New</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs">
+<!-- Card 1 (Primary) -->
+<div class="relative group rounded-lg overflow-hidden bg-surface-container shadow-sm aspect-square">
+<img class="w-full h-full object-cover" data-alt="Macro photo of vibrant red ripe cherry tomatoes clustered on branch, ultra crisp studio lighting, clear product shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7Z66Yh8045ksLW7tJwrLyhorUU1ZXqqVPZkbaq3SLa4JoywT8__uOBfi6RsGkQ_0rOR4mpR90U95HHgU46R44iXT0SmnVzzXe7PSYAP1PwRFxZczxQY-qE2QjcNCnHLl6Z8Z1cf324PxEK2HNDxFecZcENunSWTsJbnnFj1v3AlJbJLqu_FHdRyZt4XvHhqcJ6fU1DjuqYXHXwS_X_ye9lh3jCsNnRSgbtycOTwqv"/>
+<span class="absolute top-1 left-1 bg-primary text-on-primary text-[9px] font-label-md uppercase px-1 rounded font-bold">Main</span>
+<button class="absolute top-1 right-1 bg-surface-container-lowest/80 text-on-surface p-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+<!-- Card 2 -->
+<div class="relative group rounded-lg overflow-hidden bg-surface-container shadow-sm aspect-square">
+<img class="w-full h-full object-cover" data-alt="Eco-friendly clear plastic clamshell container filled with 500g fresh cherry tomatoes on white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_DqMP3u6DnYAFXChxO_65_m8C8ooodLRx-zRVHwhc0NmXazQ5fDEYyRXxIbbZToCIgY3-Lr8VUCroHRn9dvkC2ijhnr3RWQotCivZalALDwK8By7XP2bOEh0EniPIv9Qm2PjsywmVrAopFmaQxfQjJotzQH23EMq7PHItLC5JyvLgZPh8hPUQRcSnt924B_zVYsB9xK3oi_O0Ewhrzqh_maKeWC_QS0HksPmOGF8g"/>
+<button class="absolute top-1 right-1 bg-surface-container-lowest/80 text-on-surface p-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+<!-- Card 3 -->
+<div class="relative group rounded-lg overflow-hidden bg-surface-container shadow-sm aspect-square">
+<img class="w-full h-full object-cover" data-alt="Hand cutting fresh cherry tomato in half showing juicy interior seeds, bright fresh lighting, appetizing grocery visual" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfEnG_pOMac_hRZ4s19mAIkcECx4ADHHa0n7RCgHe8TqrjUWmxHVIKqMoQrroOS1x7l98r7F8jWMKuWMy5bduf9mu4l82ttBKeM0XJenMNVTCGNTh3rKfcaCrNWCSK9DsfUwkh5meRk-3MNZXoMWoSRoM2mTSbBaZmRSrSZBNGRVUa3OYQywourTIBL59AjkKnsXFjAI83vdbt1ORWd92nfIoDo-SCTgASCq_5Bts8"/>
+<button class="absolute top-1 right-1 bg-surface-container-lowest/80 text-on-surface p-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Section: Cold Chain Storage Profile -->
+<div class="p-space-sm bg-surface-container-low rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">ac_unit</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Chilled Room B (Target 4°C - 7°C)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Hydroponic produce cold-line shelf life: 6 days</span>
+</div>
+</div>
+<span class="w-2.5 h-2.5 rounded-full bg-primary shrink-0"></span>
+</div>
+<!-- Toggle Row: App Visibility -->
+<div class="flex items-center justify-between py-1">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Display in Customer App</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Allow immediate mobile orders in South Central Hub</span>
+</div>
+<div class="w-9 h-5 bg-primary rounded-full relative inline-flex items-center p-0.5 cursor-pointer">
+<div class="w-4 h-4 bg-on-primary rounded-full translate-x-4 transition-transform"></div>
+</div>
+</div>
+</div>
+<!-- Drawer Sticky Footer Actions -->
+<div class="p-space-md bg-surface-container-low flex items-center justify-end gap-space-sm shadow-md">
+<button class="px-space-md py-2 rounded-lg font-label-lg text-label-lg text-on-surface bg-surface-container hover:bg-surface-container-high transition-colors" id="cancel-drawer-btn">
+          Cancel
+        </button>
+<button class="flex items-center gap-space-xs px-space-md py-2 rounded-lg font-label-lg text-label-lg text-on-primary bg-primary hover:bg-primary-container transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px]">save</span>
+<span>Save Vegetable Changes</span>
+</button>
+</div>
+</aside>
+</div>
+<script>
+    // Simple micro-interactions for drawer behavior
+    const drawer = document.getElementById('editor-drawer');
+    const closeBtn = document.getElementById('close-drawer-btn');
+    const cancelBtn = document.getElementById('cancel-drawer-btn');
+    const openBtn = document.getElementById('open-drawer-btn');
+
+    if (closeBtn && drawer) {
+      closeBtn.addEventListener('click', () => {
+        drawer.classList.add('hidden');
+      });
+    }
+    if (cancelBtn && drawer) {
+      cancelBtn.addEventListener('click', () => {
+        drawer.classList.add('hidden');
+      });
+    }
+    if (openBtn && drawer) {
+      openBtn.addEventListener('click', () => {
+        drawer.classList.remove('hidden');
+      });
+    }
+  </script>
+</div></main></div></body></html>
